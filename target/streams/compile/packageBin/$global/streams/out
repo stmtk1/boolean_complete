@@ -1,0 +1,13 @@
+[0m[[0m[0minfo[0m] [0m[0mPackaging /Users/stmtk/java/logic/target/scala-2.12/logic_2.12-1.0.jar ...[0m
+[0m[[0m[0mdebug[0m] [0m[0mInput file mappings:[0m
+[0m[[0m[0mdebug[0m] [0m[0m	main.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stmtk/java/logic/target/scala-2.12/classes/main.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	LogicGenerator$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stmtk/java/logic/target/scala-2.12/classes/LogicGenerator$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Prover.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stmtk/java/logic/target/scala-2.12/classes/Prover.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	main$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stmtk/java/logic/target/scala-2.12/classes/main$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	LogicGenerator.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/stmtk/java/logic/target/scala-2.12/classes/LogicGenerator.class[0m
+[0m[[0m[0minfo[0m] [0m[0mDone packaging.[0m
