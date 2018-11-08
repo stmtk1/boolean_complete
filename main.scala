@@ -40,10 +40,6 @@ class Prover (init_size: Int, init_circuit: Array[Boolean] => Boolean){
   
   def to_two_input(rule: Int) : (Boolean, Boolean) => Boolean = {
     val selector: Array[Boolean] = int_to_bools(rule)
-    for(b <- selector){
-      //println(b)
-    }
-    //println
     (x, y) => {
       val input: Array[Boolean] = new Array[Boolean](this.size)
       for( i <- 0 until input.length){
@@ -66,18 +62,35 @@ class Prover (init_size: Int, init_circuit: Array[Boolean] => Boolean){
     }
     ret
   }
+  
+  def comform_all_two_inputs(): Array[Boolean] = {
+    val ret: Array[Boolean] = new Array[Boolean](16)
+    for(i <- 0 until ret.length){
+      ret(i) = false
+    }
+    for(i <- 0 until ret.length){
+      val func_bit: Int = Prover.func_to_int(to_two_input(i))
+      ret(func_bit) = true
+    }
+    ret
+  }
+}
+
+object Prover{
+  def func_to_int(two_inputs: (Boolean, Boolean) => Boolean) : Int = {
+    val ret : Array[Boolean] = new Array[Boolean](4)
+    ret(0) = two_inputs(false, false)
+    ret(1) = two_inputs(false, true)
+    ret(2) = two_inputs(true, false)
+    ret(3) = two_inputs(true, true)
+    LogicGenerator.bools_to_int(ret.reverse)
+  }
 }
 
 object main {
   def main(args: Array[String]) {
     val size = 3
     val a = new LogicGenerator(size)
-    for(i <- 0 until 8){
-      new Prover(size, a.gen_func(i))
-    }
-    for(i <- 0 until 8){
-      val b :Boolean = new Prover(size, a.gen_func(12)).to_two_input(i)(false, true)
-      println(b)
-    }
+    new Prover(size, a.gen_func(1)).comform_all_two_inputs()
   }
 }
