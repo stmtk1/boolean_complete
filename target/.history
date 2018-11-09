@@ -1,5 +1,6 @@
+compile
+sbt run
 run
-un
+test
 run
-clear
-run
+test

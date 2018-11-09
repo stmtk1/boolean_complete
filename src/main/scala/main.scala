@@ -6,6 +6,9 @@ class LogicGenerator (init_size: Int){
   def gen_func(rule_int: Int) : Array[Boolean] => Boolean = {
     val rule_array: Array[Boolean] = int_to_rule_bools(rule_int)
     x => {
+      if(x.length != this.size) {
+        //raise new Exception("Wrong Length of Array")
+      }
       rule_array(LogicGenerator.bools_to_int(x))
     }
   }
@@ -76,7 +79,7 @@ class Prover (init_size: Int, init_circuit: Array[Boolean] => Boolean){
   }
 }
 
-object Prover{
+object Prover {
   def func_to_int(two_inputs: (Boolean, Boolean) => Boolean) : Int = {
     val ret : Array[Boolean] = new Array[Boolean](4)
     ret(0) = two_inputs(false, false)

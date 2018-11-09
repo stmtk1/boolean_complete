@@ -4,7 +4,7 @@
 		module="logic_2.12"
 		revision="1.0"
 		status="integration"
-		publication="20181106001652"
+		publication="20181109224121"
 	>
 		<description>
 		logic
@@ -32,5 +32,7 @@
 	<dependencies>
 		<dependency org="org.scala-lang" name="scala-compiler" rev="2.12.7" conf="scala-tool->default,optional(default)"/>
 		<dependency org="org.scala-lang" name="scala-library" rev="2.12.7" conf="scala-tool->default,optional(default);compile->default(compile)"/>
+		<dependency org="org.scalactic" name="scalactic_2.12" rev="3.0.5" conf="compile->default(compile)"/>
+		<dependency org="org.scalatest" name="scalatest_2.12" rev="3.0.5" conf="test->default(compile)"/>
 	</dependencies>
 </ivy-module>

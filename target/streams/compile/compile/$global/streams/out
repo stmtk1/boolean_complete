@@ -1,6 +1,16 @@
-[0m[[0m[31merror[0m] [0m[0m/Users/stmtk/java/logic/main.scala:102:78: type mismatch;[0m
-[0m[[0m[31merror[0m] [0m[0m found   : Array[Boolean][0m
-[0m[[0m[31merror[0m] [0m[0m required: Boolean[0m
-[0m[[0m[31merror[0m] [0m[0m      val b :Boolean = new Prover(size, a.gen_func(1)).comform_all_two_inputs()[0m
-[0m[[0m[31merror[0m] [0m[0m                                                                             ^[0m
-[0m[[0m[31merror[0m] [0m[0mone error found[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stmtk/java/logic/src/main/scala/main.scala:3:7: LogicGenerator is already defined as class LogicGenerator[0m
+[0m[[0m[31merror[0m] [0m[0mclass LogicGenerator (init_size: Int){[0m
+[0m[[0m[31merror[0m] [0m[0m      ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stmtk/java/logic/src/main/scala/main.scala:27:8: LogicGenerator is already defined as object LogicGenerator[0m
+[0m[[0m[31merror[0m] [0m[0mobject LogicGenerator {[0m
+[0m[[0m[31merror[0m] [0m[0m       ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stmtk/java/logic/src/main/scala/main.scala:40:7: Prover is already defined as class Prover[0m
+[0m[[0m[31merror[0m] [0m[0mclass Prover (init_size: Int, init_circuit: Array[Boolean] => Boolean){[0m
+[0m[[0m[31merror[0m] [0m[0m      ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stmtk/java/logic/src/main/scala/main.scala:82:8: Prover is already defined as object Prover[0m
+[0m[[0m[31merror[0m] [0m[0mobject Prover {[0m
+[0m[[0m[31merror[0m] [0m[0m       ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stmtk/java/logic/src/main/scala/main.scala:93:8: main is already defined as object main[0m
+[0m[[0m[31merror[0m] [0m[0mobject main {[0m
+[0m[[0m[31merror[0m] [0m[0m       ^[0m
+[0m[[0m[31merror[0m] [0m[0m5 errors found[0m
