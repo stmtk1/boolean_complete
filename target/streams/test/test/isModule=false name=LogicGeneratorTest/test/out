@@ -1,0 +1,18 @@
+[0m[[0m[0minfo[0m] [0m[0m[32mLogicGeneratorTest:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mコンストラクタ[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m  引数[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m  - size[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mbools_to_int[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m  長さ２[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m  - all true[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m  - (false, true)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m  - all false[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m  長さ３[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m  - all false[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m  - (false, false, true)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m  - (true, false, false)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m  - (false, true, false)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m  - all true[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m  長さ４[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m  - all false[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m  - all true[0m[0m
