@@ -260,6 +260,16 @@ class IntBoolsConverterTest extends FunSpec {
       }
     }
     
+    describe("最後だけfalse"){
+      it("size 3"){
+        assert(IntBoolsConverter.int_to_bools((IntBoolsConverter.bools_to_int(Array(true, true, false))), 3).sameElements(Array(true, true, false)))
+      }
+      
+      it("size 4"){
+        assert(IntBoolsConverter.int_to_bools((IntBoolsConverter.bools_to_int(Array(true, true, true, false))), 4).sameElements(Array(true, true, true, false)))
+      }
+    }
+    
     describe("２番目だけfalse"){
       it("size 3"){
         assert(IntBoolsConverter.int_to_bools((IntBoolsConverter.bools_to_int(Array(true, false, true))), 3).sameElements(Array(true, false, true)))
