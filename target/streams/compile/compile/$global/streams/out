@@ -1,4 +1,13 @@
-[0m[[0m[31merror[0m] [0m[0m/Users/stmtk/java/logic/src/main/scala/main.scala:121:5: not found: value LogicGenerator[0m
-[0m[[0m[31merror[0m] [0m[0m    LogicGenerator.bools_to_int(ret.reverse)[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stmtk/java/logic/src/main/scala/main.scala:8:36: not found: value IntBoolsConverter[0m
+[0m[[0m[31merror[0m] [0m[0m    val selector: Array[Boolean] = IntBoolsConverter.int_to_bools(rule, this.size)[0m
+[0m[[0m[31merror[0m] [0m[0m                                   ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stmtk/java/logic/src/main/scala/main.scala:38:38: not found: value IntBoolsConverter[0m
+[0m[[0m[31merror[0m] [0m[0m    val rule_array: Array[Boolean] = IntBoolsConverter.int_to_bools(rule, rule_size)[0m
+[0m[[0m[31merror[0m] [0m[0m                                     ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stmtk/java/logic/src/main/scala/main.scala:45:18: not found: value IntBoolsConverter[0m
+[0m[[0m[31merror[0m] [0m[0m      rule_array(IntBoolsConverter.bools_to_int(x))[0m
+[0m[[0m[31merror[0m] [0m[0m                 ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stmtk/java/logic/src/main/scala/main.scala:55:5: not found: value IntBoolsConverter[0m
+[0m[[0m[31merror[0m] [0m[0m    IntBoolsConverter.bools_to_int(ret.reverse)[0m
 [0m[[0m[31merror[0m] [0m[0m    ^[0m
-[0m[[0m[31merror[0m] [0m[0mone error found[0m
+[0m[[0m[31merror[0m] [0m[0mfour errors found[0m
