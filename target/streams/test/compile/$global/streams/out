@@ -1,16 +1,4 @@
-[0m[[0m[31merror[0m] [0m[0m/Users/stmtk/java/logic/src/test/scala/main.scala:79:16: not found: value size1[0m
-[0m[[0m[31merror[0m] [0m[0m        assert(size1.int_to_rule_bools(0).length == 4)[0m
-[0m[[0m[31merror[0m] [0m[0m               ^[0m
-[0m[[0m[31merror[0m] [0m[0m/Users/stmtk/java/logic/src/test/scala/main.scala:83:16: not found: value size1[0m
-[0m[[0m[31merror[0m] [0m[0m        assert(size1.int_to_rule_bools(0).sameElements(Array(false, false, false, false)))[0m
-[0m[[0m[31merror[0m] [0m[0m               ^[0m
-[0m[[0m[31merror[0m] [0m[0m/Users/stmtk/java/logic/src/test/scala/main.scala:87:16: not found: value size1[0m
-[0m[[0m[31merror[0m] [0m[0m        assert(size1.int_to_rule_bools(1).sameElements(Array(true, false, false, false)))[0m
-[0m[[0m[31merror[0m] [0m[0m               ^[0m
-[0m[[0m[31merror[0m] [0m[0m/Users/stmtk/java/logic/src/test/scala/main.scala:91:16: not found: value size1[0m
-[0m[[0m[31merror[0m] [0m[0m        assert(size1.int_to_rule_bools(2).sameElements(Array(false, true, false, false)))[0m
-[0m[[0m[31merror[0m] [0m[0m               ^[0m
-[0m[[0m[31merror[0m] [0m[0m/Users/stmtk/java/logic/src/test/scala/main.scala:95:16: not found: value size1[0m
-[0m[[0m[31merror[0m] [0m[0m        assert(size1.int_to_rule_bools(8).sameElements(Array(false, false, false, true)))[0m
-[0m[[0m[31merror[0m] [0m[0m               ^[0m
-[0m[[0m[31merror[0m] [0m[0m5 errors found[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stmtk/java/logic/src/test/scala/main.scala:218:3: Missing closing brace `}' assumed here[0m
+[0m[[0m[31merror[0m] [0m[0m  }[0m
+[0m[[0m[31merror[0m] [0m[0m  ^[0m
+[0m[[0m[31merror[0m] [0m[0mone error found[0m

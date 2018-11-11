@@ -1,5 +1,29 @@
 import scala.math.pow
 
+object IntBoolsConverter{
+  def int_to_bools(rule_int: Int, size: Int) : Array[Boolean] = {
+    val ret : Array[Boolean] = new Array[Boolean](size)
+    var rule_var: Int = rule_int
+//    for(i <- (ret.length - 1) to 0 by -1){
+    for(i <- 0 until ret.length){
+      ret(i) = rule_var % 2 == 1
+      rule_var = rule_var / 2
+    }
+    ret
+  }
+  
+  def bools_to_int(input: Array[Boolean]) : Int = {
+    var ret: Int = 0
+    for(i <- input.reverse) {
+      ret *= 2
+      if(i) {
+        ret += 1
+      }
+    }
+    ret
+  }
+}
+
 class LogicGenerator (init_size: Int){
   val size: Int = init_size
   
