@@ -16,7 +16,8 @@ class LogicGenerator (init_size: Int){
   def int_to_rule_bools(rule_int: Int) : Array[Boolean] = {
     val ret : Array[Boolean] = new Array[Boolean](pow(2, this.size).intValue)
     var rule_var: Int = rule_int
-    for(i <- (ret.length - 1) to 0 by -1){
+//    for(i <- (ret.length - 1) to 0 by -1){
+    for(i <- 0 until ret.length){
       ret(i) = rule_var % 2 == 1
       rule_var = rule_var / 2
     }

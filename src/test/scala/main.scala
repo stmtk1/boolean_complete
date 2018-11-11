@@ -58,5 +58,46 @@ class LogicGeneratorTest extends FunSpec {
   }
   
   describe("int_to_rule_bools"){
+    describe("size 1"){
+      val size1: LogicGenerator = new LogicGenerator(1)
+      it("返り値の長さチェック"){
+        assert(size1.int_to_rule_bools(0).length == 2)
+      }
+      
+      it("all false"){
+        assert(size1.int_to_rule_bools(0).sameElements(Array(false, false)))
+      }
+      
+      it("rule 1"){
+        assert(size1.int_to_rule_bools(1).sameElements(Array(true, false)))
+      }
+    }
+    
+    describe("size 2"){
+      val size2: LogicGenerator = new LogicGenerator(2)
+      it("返り値の長さチェック"){
+        assert(size2.int_to_rule_bools(0).length == 4)
+      }
+      
+      it("all false"){
+        assert(size2.int_to_rule_bools(0).sameElements(Array(false, false, false, false)))
+      }
+      
+      it("先頭だけtrue"){
+        assert(size2.int_to_rule_bools(1).sameElements(Array(true, false, false, false)))
+      }
+      
+      it("2番目だけtrue"){
+        assert(size2.int_to_rule_bools(2).sameElements(Array(false, true, false, false)))
+      }
+      
+      it("最後だけtrue"){
+        assert(size2.int_to_rule_bools(8).sameElements(Array(false, false, false, true)))
+      }
+      
+      it("all true"){
+        assert(size2.int_to_rule_bools(15).sameElements(Array(true, true, true, true)))
+      }
+    }
   }
 }

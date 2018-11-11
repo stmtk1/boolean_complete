@@ -17,3 +17,13 @@
 [0m[[0m[0minfo[0m] [0m[0m[32m  - all false[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32m  - all true[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32mint_to_rule_bools[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m  size 1[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m  - 返り値の長さチェック[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m  - all false[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m  - rule 1[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m  size 2[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m  - 返り値の長さチェック[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m  - all false[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m  - 先頭だけtrue[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m  - 2番目だけtrue[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m  - 最後だけtrue[0m[0m
