@@ -80,7 +80,6 @@ object Prover {
 object main {
   def main(args: Array[String]) {
     val size = 3
-    //val a = new LogicGenerator(size)
     new Prover(size, Prover.gen_init_func(1, size)).comform_all_two_inputs()
   }
 }

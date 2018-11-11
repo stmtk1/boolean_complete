@@ -285,3 +285,265 @@ class IntBoolsConverterTest extends FunSpec {
     }
   }
 }
+
+class GenInitFuncTest extends FunSpec {
+  describe("size1"){
+    val one_true: Array[Boolean] = Array(true)
+    val one_false: Array[Boolean] = Array(false)
+    describe("ルール0は常にfalse"){
+      val func: Array[Boolean] => Boolean = Prover.gen_init_func(0, 1)
+      it("true => false"){
+        assert(func(one_true) == false)
+      }
+      
+      it("false => false"){
+        assert(func(one_false) == false)
+      }
+    }
+    
+    describe("ルール1はnot"){
+      val func: Array[Boolean] => Boolean = Prover.gen_init_func(1, 1)
+      it("true => false"){
+        assert(func(one_true) == false)
+      }
+      
+      it("false => true"){
+        assert(func(one_false) == true)
+      }
+    }
+    
+    describe("ルール2はidentity funtion"){
+      val func: Array[Boolean] => Boolean = Prover.gen_init_func(2, 1)
+      it("true => true"){
+        assert(func(one_true) == true)
+      }
+      
+      it("false => false"){
+        assert(func(one_false) == false)
+      }
+    }
+    
+    describe("ルール3は常にtrue"){
+      val func: Array[Boolean] => Boolean = Prover.gen_init_func(3, 1)
+      it("true => true"){
+        assert(func(one_true) == true)
+      }
+      
+      it("false => true"){
+        assert(func(one_false) == true)
+      }
+    }
+  }
+  
+  describe("size2"){
+    val all_true: Array[Boolean] = Array(true, true)
+    val all_false: Array[Boolean] = Array(false, false)
+    val true_false: Array[Boolean] = Array(true, false)
+    val false_true: Array[Boolean] = Array(false, true)
+    describe("ルール0は常にfalse"){
+      val func: Array[Boolean] => Boolean = Prover.gen_init_func(0, 2)
+      it("1ばんめ"){
+        assert(func(all_true) == false)
+      }
+      
+      it("2ばんめ"){
+        assert(func(false_true) == false)
+      }
+      
+      it("3ばんめ"){
+        assert(func(true_false) == false)
+      }
+      
+      it("4番目"){
+        assert(func(all_false) == false)
+      }
+    }
+    
+    describe("ルール8はand"){
+      val func: Array[Boolean] => Boolean = Prover.gen_init_func(8, 2)
+      it("1ばんめ"){
+        assert(func(all_true) == true)
+      }
+      
+      it("2ばんめ"){
+        assert(func(false_true) == false)
+      }
+      
+      it("3ばんめ"){
+        assert(func(true_false) == false)
+      }
+      
+      it("4番目"){
+        assert(func(all_false) == false)
+      }
+    }
+    
+    describe("ルール14はor"){
+      val func: Array[Boolean] => Boolean = Prover.gen_init_func(14, 2)
+      it("1ばんめ"){
+        assert(func(all_true) == true)
+      }
+      
+      it("2ばんめ"){
+        assert(func(false_true) == true)
+      }
+      
+      it("3ばんめ"){
+        assert(func(true_false) == true)
+      }
+      
+      it("4番目"){
+        assert(func(all_false) == false)
+      }
+    }
+    
+    describe("ルール6はxor"){
+      val func: Array[Boolean] => Boolean = Prover.gen_init_func(6, 2)
+      it("1ばんめ"){
+        assert(func(all_true) == false)
+      }
+      
+      it("2ばんめ"){
+        assert(func(false_true) == true)
+      }
+      
+      it("3ばんめ"){
+        assert(func(true_false) == true)
+      }
+      
+      it("4番目"){
+        assert(func(all_false) == false)
+      }
+    }
+    
+    describe("ルール7はnand"){
+      val func: Array[Boolean] => Boolean = Prover.gen_init_func(7, 2)
+      it("1ばんめ"){
+        assert(func(all_true) == false)
+      }
+      
+      it("2ばんめ"){
+        assert(func(false_true) == true)
+      }
+      
+      it("3ばんめ"){
+        assert(func(true_false) == true)
+      }
+      
+      it("4番目"){
+        assert(func(all_false) == true)
+      }
+    }
+    
+    describe("ルール1はnor"){
+      val func: Array[Boolean] => Boolean = Prover.gen_init_func(1, 2)
+      it("1ばんめ"){
+        assert(func(all_true) == false)
+      }
+      
+      it("2ばんめ"){
+        assert(func(false_true) == false)
+      }
+      
+      it("3ばんめ"){
+        assert(func(true_false) == false)
+      }
+      
+      it("4番目"){
+        assert(func(all_false) == true)
+      }
+    }
+    
+    describe("ルール9はxnor"){
+      val func: Array[Boolean] => Boolean = Prover.gen_init_func(9, 2)
+      it("1ばんめ"){
+        assert(func(all_true) == true)
+      }
+      
+      it("2ばんめ"){
+        assert(func(false_true) == false)
+      }
+      
+      it("3ばんめ"){
+        assert(func(true_false) == false)
+      }
+      
+      it("4番目"){
+        assert(func(all_false) == true)
+      }
+    }
+    
+    describe("ルール2は可換じゃない演算"){
+      val func: Array[Boolean] => Boolean = Prover.gen_init_func(2, 2)
+      it("1ばんめ"){
+        assert(func(all_true) == false)
+      }
+      
+      it("2ばんめ"){
+        assert(func(true_false) == true)
+      }
+      
+      it("3ばんめ"){
+        assert(func(false_true) == false)
+      }
+      
+      it("4番目"){
+        assert(func(all_false) == false)
+      }
+    }
+    
+    describe("ルール15は常にtrue"){
+      val func: Array[Boolean] => Boolean = Prover.gen_init_func(15, 2)
+      it("1ばんめ"){
+        assert(func(all_true) == true)
+      }
+      
+      it("2ばんめ"){
+        assert(func(true_false) == true)
+      }
+      
+      it("3ばんめ"){
+        assert(func(false_true) == true)
+      }
+      
+      it("4番目"){
+        assert(func(all_false) == true)
+      }
+    }
+  }
+  
+  describe("size 3"){
+    val input0: Array[Boolean] = Array(false, false, false)
+    val input1: Array[Boolean] = Array(false, false, true)
+    val input2: Array[Boolean] = Array(false, true, false)
+    val input3: Array[Boolean] = Array(false, true, true)
+    val input4: Array[Boolean] = Array(true, false, false)
+    val input5: Array[Boolean] = Array(true, false, true)
+    val input6: Array[Boolean] = Array(true, true, false)
+    val input7: Array[Boolean] = Array(true, true, true)
+
+    it("常にtrue"){
+      val func :Array[Boolean] => Boolean = Prover.gen_init_func(255, 3)
+      assert(func(input0) == true)
+      assert(func(input1) == true)
+      assert(func(input2) == true)
+      assert(func(input3) == true)
+      assert(func(input4) == true)
+      assert(func(input5) == true)
+      assert(func(input6) == true)
+      assert(func(input7) == true)
+    }
+    
+    it("常にfalse"){
+      val func :Array[Boolean] => Boolean = Prover.gen_init_func(0, 3)
+      assert(func(input0) == false)
+      assert(func(input1) == false)
+      assert(func(input2) == false)
+      assert(func(input3) == false)
+      assert(func(input4) == false)
+      assert(func(input5) == false)
+      assert(func(input6) == false)
+      assert(func(input7) == false)
+    }
+  }
+}
