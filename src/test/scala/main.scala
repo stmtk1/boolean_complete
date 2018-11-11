@@ -17,7 +17,7 @@ class LogicGeneratorTest extends FunSpec {
       }
       
       it("(false, true)"){
-        assert(LogicGenerator.bools_to_int(Array(false, true)) == 1)
+        assert(LogicGenerator.bools_to_int(Array(false, true)) == 2)
       }
       
       it("all false"){
@@ -30,11 +30,11 @@ class LogicGeneratorTest extends FunSpec {
       }
       
       it("(false, false, true)"){
-        assert(LogicGenerator.bools_to_int(Array(false, false, true)) == 1)
+        assert(LogicGenerator.bools_to_int(Array(false, false, true)) == 4)
       }
       
       it("(true, false, false)"){
-        assert(LogicGenerator.bools_to_int(Array(true, false, false)) == 4)
+        assert(LogicGenerator.bools_to_int(Array(true, false, false)) == 1)
       }
       
       it("(false, true, false)"){
@@ -55,5 +55,8 @@ class LogicGeneratorTest extends FunSpec {
         assert(LogicGenerator.bools_to_int(Array(true, true, true, true)) == 15)
       }
     }
+  }
+  
+  describe("int_to_rule_bools"){
   }
 }

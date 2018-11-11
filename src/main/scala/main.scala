@@ -27,7 +27,7 @@ class LogicGenerator (init_size: Int){
 object LogicGenerator {
   def bools_to_int(input: Array[Boolean]) : Int = {
     var ret: Int = 0
-    for(i <- input) {
+    for(i <- input.reverse) {
       ret *= 2
       if(i) {
         ret += 1

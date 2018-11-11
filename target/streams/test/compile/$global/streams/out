@@ -1,6 +1,4 @@
-[0m[[0m[31merror[0m] [0m[0m/Users/stmtk/java/logic/src/test/scala/main.scala:6:7: missing argument list for method apply in class ItWord[0m
-[0m[[0m[31merror[0m] [0m[0mUnapplied methods are only converted to functions when a function type is expected.[0m
-[0m[[0m[31merror[0m] [0m[0mYou can make this conversion explicit by writing `apply _` or `apply(_,_)(_)(_)` instead of `apply`.[0m
-[0m[[0m[31merror[0m] [0m[0m    it("size") in {[0m
-[0m[[0m[31merror[0m] [0m[0m      ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stmtk/java/logic/src/test/scala/main.scala:60:3: not found: value descibe[0m
+[0m[[0m[31merror[0m] [0m[0m  descibe("int_to_rule_bools"){[0m
+[0m[[0m[31merror[0m] [0m[0m  ^[0m
 [0m[[0m[31merror[0m] [0m[0mone error found[0m
