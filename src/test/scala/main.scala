@@ -578,6 +578,26 @@ class ProverConstructorTest extends FunSpec {
       assert(func(Array(true, true, true)) == true)
     }
   }
+  
+  describe("sizeと引数のlengthが違うと例外発生"){
+    it("size 1"){
+      intercept[Exception]{
+        new Prover(0, 1).circuit(Array(true, true))
+      }
+    }
+    
+    it("size 2"){
+      intercept[Exception]{
+        new Prover(0, 2).circuit(Array(true))
+      }
+    }
+    
+    it("size 3"){
+      intercept[Exception]{
+        new Prover(0, 3).circuit(Array(true))
+      }
+    }
+  }
 }
 
 class ToTwoInputTest extends FunSpec {

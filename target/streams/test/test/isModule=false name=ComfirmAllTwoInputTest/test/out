@@ -3,5 +3,4 @@
 [0m[[0m[0minfo[0m] [0m[0m[32m- nor[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32m- and[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32m- or[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m- id *** FAILED ***[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  true did not equal false (main.scala:752)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- id[0m[0m

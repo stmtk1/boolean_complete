@@ -38,9 +38,8 @@ object Prover {
     val rule_array: Array[Boolean] = Prover.int_to_bools(rule, rule_size)
     x => {
       if(x.length != size) {
+        throw new Exception("引数の長さ違います")
         //raise new Exception("Wrong Length of Array")
-        // TODO
-        // rase exception
       }
       rule_array(Prover.bools_to_int(x))
     }

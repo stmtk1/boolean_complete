@@ -1,6 +1,6 @@
-[0m[[0m[31merror[0m] [0m[0m/Users/stmtk/java/logic/src/main/scala/main.scala:83:42: type mismatch;[0m
-[0m[[0m[31merror[0m] [0m[0m found   : Array[Boolean] => Boolean[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stmtk/java/logic/src/main/scala/main.scala:88:44: type mismatch;[0m
+[0m[[0m[31merror[0m] [0m[0m found   : Boolean[0m
 [0m[[0m[31merror[0m] [0m[0m required: Int[0m
-[0m[[0m[31merror[0m] [0m[0m    new Prover(size, Prover.gen_init_func(1, size)).comform_all_two_inputs()[0m
-[0m[[0m[31merror[0m] [0m[0m                                         ^[0m
+[0m[[0m[31merror[0m] [0m[0m    val b :Int = new Prover(127, 3).circuit(Array(true, true))[0m
+[0m[[0m[31merror[0m] [0m[0m                                           ^[0m
 [0m[[0m[31merror[0m] [0m[0mone error found[0m
