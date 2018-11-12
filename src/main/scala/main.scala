@@ -1,7 +1,7 @@
 import scala.math.pow
 
-class Prover (init_size: Int, init_circuit: Array[Boolean] => Boolean){
-  val circuit: Array[Boolean] => Boolean = init_circuit
+class Prover (rule_int: Int, init_size: Int){
+  val circuit: Array[Boolean] => Boolean = Prover.gen_init_func(rule_int, init_size)
   val size: Int = init_size
   
   def to_two_input(rule: Int) : (Boolean, Boolean) => Boolean = {
@@ -80,6 +80,6 @@ object Prover {
 object main {
   def main(args: Array[String]) {
     val size = 3
-    new Prover(size, Prover.gen_init_func(1, size)).comform_all_two_inputs()
+    new Prover(1, size).comform_all_two_inputs()
   }
 }

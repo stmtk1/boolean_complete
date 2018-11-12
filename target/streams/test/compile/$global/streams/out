@@ -1,4 +1,4 @@
-[0m[[0m[31merror[0m] [0m[0m/Users/stmtk/java/logic/src/test/scala/main.scala:578:68: ';' expected but ')' found.[0m
-[0m[[0m[31merror[0m] [0m[0m    val func : (Boolean, Boolean) => Boolean = (x, y) => { !(x ^ y)) }[0m
-[0m[[0m[31merror[0m] [0m[0m                                                                   ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stmtk/java/logic/src/test/scala/main.scala:25:5: ')' expected but '}' found.[0m
+[0m[[0m[31merror[0m] [0m[0m    }[0m
+[0m[[0m[31merror[0m] [0m[0m    ^[0m
 [0m[[0m[31merror[0m] [0m[0mone error found[0m

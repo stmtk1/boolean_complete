@@ -1,286 +1,220 @@
 import org.scalatest.FunSpec
 
 class IntBoolsConverterTest extends FunSpec {
-  describe("bools_to_int"){ 
-    describe("長さ２"){
-      it("all true"){
-        assert(Prover.bools_to_int(Array(true, true)) == 3)
-      }
-      
-      it("(false, true)"){
-        assert(Prover.bools_to_int(Array(false, true)) == 2)
-      }
-      
-      it("all false"){
-        assert(Prover.bools_to_int(Array(false, false)) == 0)
-      }
-    }
-    describe("長さ３"){
-      it("all false"){
-        assert(Prover.bools_to_int(Array(false, false, false)) == 0)
-      }
-      
-      it("(false, false, true)"){
-        assert(Prover.bools_to_int(Array(false, false, true)) == 4)
-      }
-      
-      it("(true, false, false)"){
-        assert(Prover.bools_to_int(Array(true, false, false)) == 1)
-      }
-      
-      it("(false, true, false)"){
-        assert(Prover.bools_to_int(Array(false, true, false)) == 2)
-      }
-      
-      it("all true"){
-        assert(Prover.bools_to_int(Array(true, true, true)) == 7)
-      }
+  describe("bools_to_int"){
+    it("長さ1"){
+      assert(Prover.bools_to_int(Array(false)) == 0)
+      assert(Prover.bools_to_int(Array(true)) == 1)
     }
     
-    describe("長さ４"){
-      it("all false"){
-        assert(Prover.bools_to_int(Array(false, false, false, false)) == 0)
-      }
-      
-      it("all true"){
-        assert(Prover.bools_to_int(Array(true, true, true, true)) == 15)
-      }
+    it("長さ２"){
+      assert(Prover.bools_to_int(Array(false, false)) == 0)
+      assert(Prover.bools_to_int(Array(true, false)) == 1)
+      assert(Prover.bools_to_int(Array(false, true)) == 2)
+      assert(Prover.bools_to_int(Array(true, true)) == 3)
+    }
+    it("長さ３"){
+      assert(Prover.bools_to_int(Array(false, false, false)) == 0)
+      assert(Prover.bools_to_int(Array(true, false, false)) == 1)
+      assert(Prover.bools_to_int(Array(false, true, false)) == 2)
+      assert(Prover.bools_to_int(Array(true, true, false)) == 3)
+      assert(Prover.bools_to_int(Array(false, false, true)) == 4)
+      assert(Prover.bools_to_int(Array(true, false, true)) == 5)
+      assert(Prover.bools_to_int(Array(false, true, true)) == 6)
+      assert(Prover.bools_to_int(Array(true, true, true)) == 7)
+    }
+    
+    it("長さ４"){
+      assert(Prover.bools_to_int(Array(false, false, false, false)) == 0)
+      assert(Prover.bools_to_int(Array(true, true, true, true)) == 15)
     }
   }
   
   describe("int_to_bools"){
-    describe("size 1"){
-      val size: Int = 1
-      it("返り値の長さチェック"){
-        assert(Prover.int_to_bools(0, size).length == 1)
-      }
-      
-      it("one false"){
-        assert(Prover.int_to_bools(0, size).sameElements(Array(false)))
-      }
-      
-      it("one true"){
-        assert(Prover.int_to_bools(1, size).sameElements(Array(true)))
-      }
+    it("size 1"){
+      val size : Int = 1
+      assert(Prover.int_to_bools(0, size).sameElements(Array(false)))
+      assert(Prover.int_to_bools(1, size).sameElements(Array(true)))
     }
     
-    describe("size 2"){
-      val size: Int = 2 
-      it("返り値の長さチェック"){
-        assert(Prover.int_to_bools(0, size).length == 2)
-      }
-      
-      it("all false"){
-        assert(Prover.int_to_bools(0, size).sameElements(Array(false, false)))
-      }
-      
-      it("rule 1"){
-        assert(Prover.int_to_bools(1, size).sameElements(Array(true, false)))
-      }
-      
-      it("all true"){
-        assert(Prover.int_to_bools(3, size).sameElements(Array(true, true)))
-      }
+    it("size 2"){
+      val size : Int = 2
+      assert(Prover.int_to_bools(0, size).sameElements(Array(false, false)))
+      assert(Prover.int_to_bools(1, size).sameElements(Array(true, false)))
+      assert(Prover.int_to_bools(2, size).sameElements(Array(false, true)))
+      assert(Prover.int_to_bools(3, size).sameElements(Array(true, true)))
     }
     
-    describe("size 3"){
-      val size: Int = 3 
-      it("返り値の長さチェック"){
-        assert(Prover.int_to_bools(0, size).length == 3)
-      }
-      
-      it("all false"){
-        assert(Prover.int_to_bools(0, size).sameElements(Array(false, false, false)))
-      }
-      
-      it("最初だけtrue"){
-        assert(Prover.int_to_bools(1, size).sameElements(Array(true, false, false)))
-      }
-      
-      it("真ん中だけtrue"){
-        assert(Prover.int_to_bools(2, size).sameElements(Array(false, true, false)))
-      }
-      
-      it("最後だけtrue"){
-        assert(Prover.int_to_bools(4, size).sameElements(Array(false, false, true)))
-      }
-      
-      it("all true"){
-        assert(Prover.int_to_bools(7, size).sameElements(Array(true, true, true)))
-      }
+    it("size 3"){
+      val size : Int = 3
+      assert(Prover.int_to_bools(0, size).sameElements(Array(false, false, false)))
+      assert(Prover.int_to_bools(1, size).sameElements(Array(true, false, false)))
+      assert(Prover.int_to_bools(2, size).sameElements(Array(false, true, false)))
+      assert(Prover.int_to_bools(4, size).sameElements(Array(false, false, true)))
+      assert(Prover.int_to_bools(7, size).sameElements(Array(true, true, true)))
     }
     
-    describe("size 4"){
-      val size: Int = 4 
-      it("返り値の長さチェック"){
-        assert(Prover.int_to_bools(0, size).length == 4)
-      }
-      
-      it("all false"){
-        assert(Prover.int_to_bools(0, size).sameElements(Array(false, false, false, false)))
-      }
-      
-      it("先頭だけtrue"){
-        assert(Prover.int_to_bools(1, size).sameElements(Array(true, false, false, false)))
-      }
-      
-      it("2番目だけtrue"){
-        assert(Prover.int_to_bools(2, size).sameElements(Array(false, true, false, false)))
-      }
-      
-      it("最後だけtrue"){
-        assert(Prover.int_to_bools(8, size).sameElements(Array(false, false, false, true)))
-      }
-      
-      it("all true"){
-        assert(Prover.int_to_bools(15, size).sameElements(Array(true, true, true, true)))
-      }
+    it("size 4"){
+      val size : Int = 4
+      assert(Prover.int_to_bools(0, size).sameElements(Array(false, false, false, false)))
+      assert(Prover.int_to_bools(1, size).sameElements(Array(true, false, false, false)))
+      assert(Prover.int_to_bools(2, size).sameElements(Array(false, true, false, false)))
+      assert(Prover.int_to_bools(3, size).sameElements(Array(true, true, false, false)))
+      assert(Prover.int_to_bools(4, size).sameElements(Array(false, false, true, false)))
+      assert(Prover.int_to_bools(5, size).sameElements(Array(true, false, true, false)))
+      assert(Prover.int_to_bools(6, size).sameElements(Array(false, true, true, false)))
+      assert(Prover.int_to_bools(7, size).sameElements(Array(true, true, true, false)))
+      assert(Prover.int_to_bools(8, size).sameElements(Array(false, false, false, true)))
+      assert(Prover.int_to_bools(9, size).sameElements(Array(true, false, false, true)))
+      assert(Prover.int_to_bools(10, size).sameElements(Array(false, true, false, true)))
+      assert(Prover.int_to_bools(11, size).sameElements(Array(true, true, false, true)))
+      assert(Prover.int_to_bools(12, size).sameElements(Array(false, false, true, true)))
+      assert(Prover.int_to_bools(13, size).sameElements(Array(true, false, true, true)))
+      assert(Prover.int_to_bools(13, size).sameElements(Array(true, false, true, true)))
+      assert(Prover.int_to_bools(14, size).sameElements(Array(false, true, true, true)))
+      assert(Prover.int_to_bools(15, size).sameElements(Array(true, true, true, true)))
     }
   }
 
   describe("Int -> Int 結合テスト"){
-    describe("0 -> 0"){
-      it("size 1"){
-        assert(Prover.bools_to_int((Prover.int_to_bools(0, 1))) == 0)
-      }
-      
-      it("size 2"){
-        assert(Prover.bools_to_int((Prover.int_to_bools(0, 2))) == 0)
-      }
-      
-      it("size 3"){
-        assert(Prover.bools_to_int((Prover.int_to_bools(0, 3))) == 0)
-      }
-      
-      it("size 4"){
-        assert(Prover.bools_to_int((Prover.int_to_bools(0, 4))) == 0)
-      }
+    it("0 -> 0"){
+      assert(Prover.bools_to_int((Prover.int_to_bools(0, 1))) == 0)
+      assert(Prover.bools_to_int((Prover.int_to_bools(0, 2))) == 0)
+      assert(Prover.bools_to_int((Prover.int_to_bools(0, 3))) == 0)
+      assert(Prover.bools_to_int((Prover.int_to_bools(0, 4))) == 0)
     }
     
-    describe("1 -> 1"){
-      it("size 1"){
-        assert(Prover.bools_to_int((Prover.int_to_bools(1, 1))) == 1)
-      }
-      
-      it("size 2"){
-        assert(Prover.bools_to_int((Prover.int_to_bools(1, 2))) == 1)
-      }
-      
-      it("size 3"){
-        assert(Prover.bools_to_int((Prover.int_to_bools(1, 3))) == 1)
-      }
-      
-      it("size 4"){
-        assert(Prover.bools_to_int((Prover.int_to_bools(1, 4))) == 1)
-      }
+    it("1 -> 1"){
+      assert(Prover.bools_to_int((Prover.int_to_bools(1, 1))) == 1)
+      assert(Prover.bools_to_int((Prover.int_to_bools(1, 2))) == 1)
+      assert(Prover.bools_to_int((Prover.int_to_bools(1, 3))) == 1)
+      assert(Prover.bools_to_int((Prover.int_to_bools(1, 4))) == 1)
     }
 
-    describe("all true"){
-      it("size 2"){
-        assert(Prover.bools_to_int((Prover.int_to_bools(3, 2))) == 3)
-      }
-      
-      it("size 3"){
-        assert(Prover.bools_to_int((Prover.int_to_bools(7, 3))) == 7)
-      }
-      
-      it("size 4"){
-        assert(Prover.bools_to_int((Prover.int_to_bools(15, 4))) == 15)
-      }
+    it("all true"){
+      assert(Prover.bools_to_int((Prover.int_to_bools(3, 2))) == 3)
+      assert(Prover.bools_to_int((Prover.int_to_bools(7, 3))) == 7)
+      assert(Prover.bools_to_int((Prover.int_to_bools(15, 4))) == 15)
+      assert(Prover.bools_to_int((Prover.int_to_bools(31, 5))) == 31)
     }
   }
   describe("Bools -> Bools 結合テスト"){
     describe("all false"){
       it("size 1"){
-        assert(Prover.int_to_bools((Prover.bools_to_int(Array(false))), 1).sameElements(Array(false)))
+        val input: Array[Boolean] = Array(false)
+        assert(Prover.int_to_bools((Prover.bools_to_int(input)), 1).sameElements(input))
       }
       
       it("size 2"){
-        assert(Prover.int_to_bools((Prover.bools_to_int(Array(false, false))), 2).sameElements(Array(false, false)))
+        val input: Array[Boolean] = Array(false, false)
+        assert(Prover.int_to_bools((Prover.bools_to_int(input)), 2).sameElements(input))
       }
       
       it("size 3"){
-        assert(Prover.int_to_bools((Prover.bools_to_int(Array(false, false, false))), 3).sameElements(Array(false, false, false)))
+        val input: Array[Boolean] = Array(false, false, false)
+        assert(Prover.int_to_bools((Prover.bools_to_int(input)), 3).sameElements(input))
       }
     }
     
     describe("all true"){
       it("size 1"){
-        assert(Prover.int_to_bools((Prover.bools_to_int(Array(true))), 1).sameElements(Array(true)))
+        val input: Array[Boolean] = Array(true)
+        assert(Prover.int_to_bools((Prover.bools_to_int(input)), 1).sameElements(input))
       }
       
       it("size 2"){
-        assert(Prover.int_to_bools((Prover.bools_to_int(Array(true, true))), 2).sameElements(Array(true, true)))
+        val input: Array[Boolean] = Array(true, true)
+        assert(Prover.int_to_bools((Prover.bools_to_int(input)), 2).sameElements(input))
       }
       
       it("size 3"){
-        assert(Prover.int_to_bools((Prover.bools_to_int(Array(true, true, true))), 3).sameElements(Array(true, true, true)))
+        val input: Array[Boolean] = Array(true, true, true)
+        assert(Prover.int_to_bools((Prover.bools_to_int(input)), 3).sameElements(input))
       }
     }
     
     describe("先頭だけtrue"){
       it("size 2"){
-        assert(Prover.int_to_bools((Prover.bools_to_int(Array(true, false))), 2).sameElements(Array(true, false)))
+        val input: Array[Boolean] = Array(true, false)
+        assert(Prover.int_to_bools((Prover.bools_to_int(input)), 2).sameElements(input))
       }
       
       it("size 3"){
-        assert(Prover.int_to_bools((Prover.bools_to_int(Array(true, false, false))), 3).sameElements(Array(true, false, false)))
+        val input: Array[Boolean] = Array(true, false, false)
+        assert(Prover.int_to_bools((Prover.bools_to_int(input)), 3).sameElements(input))
       }
       
       it("size 4"){
-        assert(Prover.int_to_bools((Prover.bools_to_int(Array(true, false, false, false))), 4).sameElements(Array(true, false, false, false)))
+        val input: Array[Boolean] = Array(true, false, false, false)
+        assert(Prover.int_to_bools((Prover.bools_to_int(input)), 4).sameElements(input))
+      }
+      
+      it("size 5"){
+        val input: Array[Boolean] = Array(true, false, false, false, false)
+        assert(Prover.int_to_bools((Prover.bools_to_int(input)), 5).sameElements(input))
       }
     }
     
     describe("２番目だけtrue"){
       it("size 3"){
-        assert(Prover.int_to_bools((Prover.bools_to_int(Array(false, true, false))), 3).sameElements(Array(false, true, false)))
+        val input: Array[Boolean] = Array(false, true, false)
+        assert(Prover.int_to_bools((Prover.bools_to_int(input)), 3).sameElements(input))
       }
       
       it("size 4"){
-        assert(Prover.int_to_bools((Prover.bools_to_int(Array(false, true, false, false))), 4).sameElements(Array(false, true, false, false)))
+        val input: Array[Boolean] = Array(false, true, false, false)
+        assert(Prover.int_to_bools((Prover.bools_to_int(input)), 4).sameElements(input))
       }
       
       it("size 5"){
-        assert(Prover.int_to_bools((Prover.bools_to_int(Array(false, true, false, false, false))), 5).sameElements(Array(false, true, false, false, false)))
+        val input: Array[Boolean] = Array(false, true, false, false, false)
+        assert(Prover.int_to_bools((Prover.bools_to_int(input)), 5).sameElements(input))
       }
     }
     
     describe("先頭だけfalse"){
       it("size 2"){
-        assert(Prover.int_to_bools((Prover.bools_to_int(Array(false, true))), 2).sameElements(Array(false, true)))
+        val input: Array[Boolean] = Array(false, true)
+        assert(Prover.int_to_bools((Prover.bools_to_int(input)), 2).sameElements(input))
       }
       
       it("size 3"){
-        assert(Prover.int_to_bools((Prover.bools_to_int(Array(false, true, true))), 3).sameElements(Array(false, true, true)))
+        val input: Array[Boolean] = Array(false, true, true)
+        assert(Prover.int_to_bools((Prover.bools_to_int(input)), 3).sameElements(input))
       }
       
       it("size 4"){
-        assert(Prover.int_to_bools((Prover.bools_to_int(Array(false, true, true, true))), 4).sameElements(Array(false, true, true, true)))
+        val input: Array[Boolean] = Array(false, true, true, true)
+        assert(Prover.int_to_bools((Prover.bools_to_int(input)), 4).sameElements(input))
       }
     }
     
     describe("最後だけfalse"){
       it("size 3"){
-        assert(Prover.int_to_bools((Prover.bools_to_int(Array(true, true, false))), 3).sameElements(Array(true, true, false)))
+        val input: Array[Boolean] = Array(true, true, false)
+        assert(Prover.int_to_bools((Prover.bools_to_int(input)), 3).sameElements(input))
       }
       
       it("size 4"){
-        assert(Prover.int_to_bools((Prover.bools_to_int(Array(true, true, true, false))), 4).sameElements(Array(true, true, true, false)))
+        val input: Array[Boolean] = Array(true, true, true, false)
+        assert(Prover.int_to_bools((Prover.bools_to_int(input)), 4).sameElements(input))
       }
     }
     
     describe("２番目だけfalse"){
       it("size 3"){
-        assert(Prover.int_to_bools((Prover.bools_to_int(Array(true, false, true))), 3).sameElements(Array(true, false, true)))
+        val input: Array[Boolean] = Array(true, false, true)
+        assert(Prover.int_to_bools((Prover.bools_to_int(input)), 3).sameElements(input))
       }
       
       it("size 4"){
-        assert(Prover.int_to_bools((Prover.bools_to_int(Array(true, false, true, true))), 4).sameElements(Array(true, false, true, true)))
+        val input: Array[Boolean] = Array(true, false, true, true)
+        assert(Prover.int_to_bools((Prover.bools_to_int(input)), 4).sameElements(input))
       }
       
       it("size 5"){
-        assert(Prover.int_to_bools((Prover.bools_to_int(Array(true, false, true, true, true))), 5).sameElements(Array(true, false, true, true, true)))
+        val input: Array[Boolean] = Array(true, false, true, true, true)
+        assert(Prover.int_to_bools((Prover.bools_to_int(input)), 5).sameElements(input))
       }
     }
   }
@@ -292,46 +226,26 @@ class GenInitFuncTest extends FunSpec {
     val one_false: Array[Boolean] = Array(false)
     describe("ルール0は常にfalse"){
       val func: Array[Boolean] => Boolean = Prover.gen_init_func(0, 1)
-      it("true => false"){
-        assert(func(one_true) == false)
-      }
-      
-      it("false => false"){
-        assert(func(one_false) == false)
-      }
+      assert(func(one_true) == false)
+      assert(func(one_false) == false)
     }
     
     describe("ルール1はnot"){
       val func: Array[Boolean] => Boolean = Prover.gen_init_func(1, 1)
-      it("true => false"){
-        assert(func(one_true) == false)
-      }
-      
-      it("false => true"){
-        assert(func(one_false) == true)
-      }
+      assert(func(one_true) == false)
+      assert(func(one_false) == true)
     }
     
     describe("ルール2はidentity funtion"){
       val func: Array[Boolean] => Boolean = Prover.gen_init_func(2, 1)
-      it("true => true"){
-        assert(func(one_true) == true)
-      }
-      
-      it("false => false"){
-        assert(func(one_false) == false)
-      }
+      assert(func(one_true) == true)
+      assert(func(one_false) == false)
     }
     
     describe("ルール3は常にtrue"){
       val func: Array[Boolean] => Boolean = Prover.gen_init_func(3, 1)
-      it("true => true"){
-        assert(func(one_true) == true)
-      }
-      
-      it("false => true"){
-        assert(func(one_false) == true)
-      }
+      assert(func(one_true) == true)
+      assert(func(one_false) == true)
     }
   }
   
@@ -340,175 +254,77 @@ class GenInitFuncTest extends FunSpec {
     val all_false: Array[Boolean] = Array(false, false)
     val true_false: Array[Boolean] = Array(true, false)
     val false_true: Array[Boolean] = Array(false, true)
-    describe("ルール0は常にfalse"){
+    
+    it("ルール0は常にfalse"){
       val func: Array[Boolean] => Boolean = Prover.gen_init_func(0, 2)
-      it("1ばんめ"){
-        assert(func(all_true) == false)
-      }
-      
-      it("2ばんめ"){
-        assert(func(false_true) == false)
-      }
-      
-      it("3ばんめ"){
-        assert(func(true_false) == false)
-      }
-      
-      it("4番目"){
-        assert(func(all_false) == false)
-      }
+      assert(func(all_true) == false)
+      assert(func(false_true) == false)
+      assert(func(true_false) == false)
+      assert(func(all_false) == false)
     }
     
-    describe("ルール8はand"){
+    it("ルール8はand"){
       val func: Array[Boolean] => Boolean = Prover.gen_init_func(8, 2)
-      it("1ばんめ"){
-        assert(func(all_true) == true)
-      }
-      
-      it("2ばんめ"){
-        assert(func(false_true) == false)
-      }
-      
-      it("3ばんめ"){
-        assert(func(true_false) == false)
-      }
-      
-      it("4番目"){
-        assert(func(all_false) == false)
-      }
+      assert(func(all_true) == true)
+      assert(func(false_true) == false)
+      assert(func(true_false) == false)
+      assert(func(all_false) == false)
     }
     
-    describe("ルール14はor"){
+    it("ルール14はor"){
       val func: Array[Boolean] => Boolean = Prover.gen_init_func(14, 2)
-      it("1ばんめ"){
-        assert(func(all_true) == true)
-      }
-      
-      it("2ばんめ"){
-        assert(func(false_true) == true)
-      }
-      
-      it("3ばんめ"){
-        assert(func(true_false) == true)
-      }
-      
-      it("4番目"){
-        assert(func(all_false) == false)
-      }
+      assert(func(all_true) == true)
+      assert(func(false_true) == true)
+      assert(func(true_false) == true)
+      assert(func(all_false) == false)
     }
     
-    describe("ルール6はxor"){
+    it("ルール6はxor"){
       val func: Array[Boolean] => Boolean = Prover.gen_init_func(6, 2)
-      it("1ばんめ"){
-        assert(func(all_true) == false)
-      }
-      
-      it("2ばんめ"){
-        assert(func(false_true) == true)
-      }
-      
-      it("3ばんめ"){
-        assert(func(true_false) == true)
-      }
-      
-      it("4番目"){
-        assert(func(all_false) == false)
-      }
+      assert(func(all_true) == false)
+      assert(func(false_true) == true)
+      assert(func(true_false) == true)
+      assert(func(all_false) == false)
     }
     
-    describe("ルール7はnand"){
+    it("ルール7はnand"){
       val func: Array[Boolean] => Boolean = Prover.gen_init_func(7, 2)
-      it("1ばんめ"){
-        assert(func(all_true) == false)
-      }
-      
-      it("2ばんめ"){
-        assert(func(false_true) == true)
-      }
-      
-      it("3ばんめ"){
-        assert(func(true_false) == true)
-      }
-      
-      it("4番目"){
-        assert(func(all_false) == true)
-      }
+      assert(func(all_true) == false)
+      assert(func(false_true) == true)
+      assert(func(true_false) == true)
+      assert(func(all_false) == true)
     }
     
-    describe("ルール1はnor"){
+    it("ルール1はnor"){
       val func: Array[Boolean] => Boolean = Prover.gen_init_func(1, 2)
-      it("1ばんめ"){
-        assert(func(all_true) == false)
-      }
-      
-      it("2ばんめ"){
-        assert(func(false_true) == false)
-      }
-      
-      it("3ばんめ"){
-        assert(func(true_false) == false)
-      }
-      
-      it("4番目"){
-        assert(func(all_false) == true)
-      }
+      assert(func(all_true) == false)
+      assert(func(false_true) == false)
+      assert(func(true_false) == false)
+      assert(func(all_false) == true)
     }
     
-    describe("ルール9はxnor"){
+    it("ルール9はxnor"){
       val func: Array[Boolean] => Boolean = Prover.gen_init_func(9, 2)
-      it("1ばんめ"){
-        assert(func(all_true) == true)
-      }
-      
-      it("2ばんめ"){
-        assert(func(false_true) == false)
-      }
-      
-      it("3ばんめ"){
-        assert(func(true_false) == false)
-      }
-      
-      it("4番目"){
-        assert(func(all_false) == true)
-      }
+      assert(func(all_true) == true)
+      assert(func(false_true) == false)
+      assert(func(true_false) == false)
+      assert(func(all_false) == true)
     }
     
-    describe("ルール2は可換じゃない演算"){
+    it("ルール2は可換じゃない演算"){
       val func: Array[Boolean] => Boolean = Prover.gen_init_func(2, 2)
-      it("1ばんめ"){
-        assert(func(all_true) == false)
-      }
-      
-      it("2ばんめ"){
-        assert(func(true_false) == true)
-      }
-      
-      it("3ばんめ"){
-        assert(func(false_true) == false)
-      }
-      
-      it("4番目"){
-        assert(func(all_false) == false)
-      }
+      assert(func(all_true) == false)
+      assert(func(true_false) == true)
+      assert(func(false_true) == false)
+      assert(func(all_false) == false)
     }
     
-    describe("ルール15は常にtrue"){
+    it("ルール15は常にtrue"){
       val func: Array[Boolean] => Boolean = Prover.gen_init_func(15, 2)
-      it("1ばんめ"){
-        assert(func(all_true) == true)
-      }
-      
-      it("2ばんめ"){
-        assert(func(true_false) == true)
-      }
-      
-      it("3ばんめ"){
-        assert(func(false_true) == true)
-      }
-      
-      it("4番目"){
-        assert(func(all_false) == true)
-      }
+      assert(func(all_true) == true)
+      assert(func(true_false) == true)
+      assert(func(false_true) == true)
+      assert(func(all_false) == true)
     }
   }
   
@@ -589,7 +405,7 @@ class FuncToIntTest extends FunSpec {
     assert(Prover.func_to_int(func) == 15)
   }
   
-  it("書かんじゃない演算の確認"){
+  it("可換じゃない演算の確認"){
     val func : (Boolean, Boolean) => Boolean = (x, y) => { x && !y }
     assert(Prover.func_to_int(func) == 2)
   }
