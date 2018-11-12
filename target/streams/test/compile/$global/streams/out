@@ -1,4 +1,4 @@
-[0m[[0m[31merror[0m] [0m[0m/Users/stmtk/java/logic/src/test/scala/main.scala:329:5: Missing closing brace `}' assumed here[0m
-[0m[[0m[31merror[0m] [0m[0m    it("ルール15は常にtrue"){[0m
-[0m[[0m[31merror[0m] [0m[0m    ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stmtk/java/logic/src/test/scala/main.scala:711:1: Missing closing brace `}' assumed here[0m
+[0m[[0m[31merror[0m] [0m[0m}[0m
+[0m[[0m[31merror[0m] [0m[0m^[0m
 [0m[[0m[31merror[0m] [0m[0mone error found[0m

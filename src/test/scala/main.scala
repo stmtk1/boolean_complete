@@ -541,3 +541,215 @@ class RuleToRuleCombineTest extends FunSpec {
     }
   }
 }
+
+class ProverConstructorTest extends FunSpec {
+  it("第２引数はsize"){
+    assert((new Prover(0, 1)).size == 1)
+    assert((new Prover(0, 2)).size == 2)
+    assert((new Prover(0, 3)).size == 3)
+  }
+  
+  describe("第一引数はルール"){
+    it("0にして常にfalseになるか確認"){
+      val func = new Prover(0, 2).circuit
+      assert(func(Array(false, false)) == false)
+      assert(func(Array(true, false)) == false)
+      assert(func(Array(false, true)) == false)
+      assert(func(Array(true, true)) == false)
+    }
+    
+    it("size2で常にtrueになるか確認"){
+      val func = new Prover(15, 2).circuit
+      assert(func(Array(false, false)) == true)
+      assert(func(Array(true, false)) == true)
+      assert(func(Array(false, true)) == true)
+      assert(func(Array(true, true)) == true)
+    }
+    
+    it("size3で常にtrueになるか確認"){
+      val func = new Prover(255, 3).circuit
+      assert(func(Array(false, false, false)) == true)
+      assert(func(Array(true, false, false)) == true)
+      assert(func(Array(false, true, false)) == true)
+      assert(func(Array(true, true, false)) == true)
+      assert(func(Array(false, false, true)) == true)
+      assert(func(Array(true, false, true)) == true)
+      assert(func(Array(false, true, true)) == true)
+      assert(func(Array(true, true, true)) == true)
+    }
+  }
+}
+
+class ToTwoInputTest extends FunSpec {
+  describe("size 3"){
+    describe("3入力nand"){
+      val p: Prover = new Prover(127, 3)
+      it("ルール1はnandのまま"){
+        val func = p.to_two_input(1)
+        assert(func(false, false) == true)
+        assert(func(true, false) == true)
+        assert(func(false, true) == true)
+        assert(func(true, true) == false)
+      }
+      
+      it("ルール2はnandのまま"){
+        val func = p.to_two_input(2)
+        assert(func(false, false) == true)
+        assert(func(true, false) == true)
+        assert(func(false, true) == true)
+        assert(func(true, true) == false)
+      }
+      
+      it("ルール7はnot"){
+        val func = p.to_two_input(7)
+        assert(func(false, false) == true)
+        assert(func(true, false) == true)
+        assert(func(false, true) == false)
+        assert(func(true, true) == false)
+      }
+      
+      it("ルール0はnot"){
+        val func = p.to_two_input(0)
+        assert(func(false, false) == true)
+        assert(func(true, false) == false)
+        assert(func(false, true) == true)
+        assert(func(true, true) == false)
+      }
+    }
+    describe("3入力nor"){
+      val p: Prover = new Prover(1, 3)
+      it("ルール1はnorのまま"){
+        val func = p.to_two_input(1)
+        assert(func(false, false) == true)
+        assert(func(true, false) == false)
+        assert(func(false, true) == false)
+        assert(func(true, true) == false)
+      }
+      
+      it("ルール2はnorのまま"){
+        val func = p.to_two_input(2)
+        assert(func(false, false) == true)
+        assert(func(true, false) == false)
+        assert(func(false, true) == false)
+        assert(func(true, true) == false)
+      }
+      
+      it("ルール7はnot"){
+        val func = p.to_two_input(7)
+        assert(func(false, false) == true)
+        assert(func(true, false) == true)
+        assert(func(false, true) == false)
+        assert(func(true, true) == false)
+      }
+      
+      it("ルール0はnot"){
+        val func = p.to_two_input(0)
+        assert(func(false, false) == true)
+        assert(func(true, false) == false)
+        assert(func(false, true) == true)
+        assert(func(true, true) == false)
+      }
+    }
+    describe("一番左の入力だけに依存する関数"){
+      val p = new Prover(240, 3)
+      it("左に依存"){
+        val func = p.to_two_input(0)
+        assert(func(false, false) == false)
+        assert(func(true, false) == true)
+        assert(func(false, true) == false)
+        assert(func(true, true) == true)
+      }
+      
+      it("右に依存"){
+        val func = p.to_two_input(7)
+        assert(func(false, false) == false)
+        assert(func(true, false) == false)
+        assert(func(false, true) == true)
+        assert(func(true, true) == true)
+      }
+      
+      it("ルール1も右に依存"){
+        val func = p.to_two_input(4)
+        assert(func(false, false) == false)
+        assert(func(true, false) == false)
+        assert(func(false, true) == true)
+        assert(func(true, true) == true)
+      }
+    }
+  }
+}
+
+class ComfirmAllTwoInputTest extends FunSpec {
+  it("nand"){
+    val bools = new Prover(127, 3).comform_all_two_inputs()
+    // not, nandが実装できる
+    for(i <- 0 until bools.length){
+      if(i == 7)
+        assert(bools(i) == true)
+      else if(i == 3)
+        assert(bools(i) == true)
+      else if(i == 5)
+        assert(bools(i) == true)
+      else
+        assert(bools(i) == false)
+    }
+  }
+  
+  it("nor"){
+    val bools = new Prover(1, 3).comform_all_two_inputs()
+    // not, norが実装できる
+    for(i <- 0 until bools.length){
+      if(i == 1)
+        assert(bools(i) == true)
+      else if(i == 3)
+        assert(bools(i) == true)
+      else if(i == 5)
+        assert(bools(i) == true)
+      else
+        assert(bools(i) == false)
+    }
+  }
+  
+  it("and"){
+    val bools = new Prover(128, 3).comform_all_two_inputs()
+    // and, idが実装できる
+    for(i <- 0 until bools.length){
+      if(i == 8)
+        assert(bools(i) == true)
+      else if(i == 10)
+        assert(bools(i) == true)
+      else if(i == 12)
+        assert(bools(i) == true)
+      else
+        assert(bools(i) == false)
+    }
+  }
+  
+  it("or"){
+    val bools = new Prover(254, 3).comform_all_two_inputs()
+    // or, idが実装できる
+    for(i <- 0 until bools.length){
+      if(i == 10)
+        assert(bools(i) == true)
+      else if(i == 12)
+        assert(bools(i) == true)
+      else if(i == 14)
+        assert(bools(i) == true)
+      else
+        assert(bools(i) == false)
+    }
+  }
+  
+  it("id"){
+    val bools = new Prover(240, 3).comform_all_two_inputs()
+    // idが実装できる
+    for(i <- 0 until bools.length){
+      if(i == 10)
+        assert(bools(i) == true)
+      else if(i == 12)
+        assert(bools(i) == true)
+      else
+        assert(bools(i) == false)
+    }
+  }
+}

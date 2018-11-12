@@ -10,9 +10,9 @@ class Prover (rule_int: Int, init_size: Int){
       val input: Array[Boolean] = new Array[Boolean](this.size)
       for( i <- 0 until input.length){
         if(selector(i)){
-          input(i) = x
-        }else{
           input(i) = y
+        }else{
+          input(i) = x
         }
       }
       circuit(input)
@@ -80,6 +80,9 @@ object Prover {
 object main {
   def main(args: Array[String]) {
     val size = 3
-    new Prover(1, size).comform_all_two_inputs()
+    val bools = new Prover(240, size).comform_all_two_inputs
+    for(b <- bools){
+      println(b)
+    }
   }
 }
