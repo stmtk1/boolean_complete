@@ -996,14 +996,14 @@
 [0m[[0m[0mdebug[0m] [0m[0mignoring unhandled DependencyDescriptorMediator: class sbt.internal.librarymanagement.IvyScalaUtil$OverrideScalaMediator[0m
 [0m[[0m[0mdebug[0m] [0m[0m	resolved ivy file produced in cache[0m
 [0m[[0m[0mdebug[0m] [0m[0m:: downloading artifacts ::[0m
-[0m[[0m[0mdebug[0m] [0m[0m	[NOT REQUIRED] org.scala-lang#scala-reflect;2.12.7!scala-reflect.jar[0m
-[0m[[0m[0mdebug[0m] [0m[0m	[NOT REQUIRED] org.scalactic#scalactic_2.12;3.0.5!scalactic_2.12.jar(bundle)[0m
 [0m[[0m[0mdebug[0m] [0m[0m	[NOT REQUIRED] org.scala-lang#scala-library;2.12.7!scala-library.jar[0m
+[0m[[0m[0mdebug[0m] [0m[0m	[NOT REQUIRED] org.scalactic#scalactic_2.12;3.0.5!scalactic_2.12.jar(bundle)[0m
 [0m[[0m[0mdebug[0m] [0m[0m	[NOT REQUIRED] org.scalatest#scalatest_2.12;3.0.5!scalatest_2.12.jar(bundle)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	[NOT REQUIRED] org.scala-lang#scala-reflect;2.12.7!scala-reflect.jar[0m
 [0m[[0m[0mdebug[0m] [0m[0m	[NOT REQUIRED] org.scala-lang.modules#scala-xml_2.12;1.0.6!scala-xml_2.12.jar(bundle)[0m
 [0m[[0m[0mdebug[0m] [0m[0m	[NOT REQUIRED] org.scala-lang#scala-compiler;2.12.7!scala-compiler.jar[0m
 [0m[[0m[0mdebug[0m] [0m[0m	[NOT REQUIRED] jline#jline;2.14.6!jline.jar[0m
-[0m[[0m[0mdebug[0m] [0m[0m:: resolution report :: resolve 124ms :: artifacts dl 5ms[0m
+[0m[[0m[0mdebug[0m] [0m[0m:: resolution report :: resolve 127ms :: artifacts dl 4ms[0m
 [0m[[0m[0mdebug[0m] [0m[0m	report for default#logic_2.12;1.0 compile produced in /Users/stmtk/java/logic/target/scala-2.12/resolution-cache/reports/default-logic_2.12-compile.xml[0m
 [0m[[0m[0mdebug[0m] [0m[0m	report for default#logic_2.12;1.0 runtime produced in /Users/stmtk/java/logic/target/scala-2.12/resolution-cache/reports/default-logic_2.12-runtime.xml[0m
 [0m[[0m[0mdebug[0m] [0m[0m	report for default#logic_2.12;1.0 test produced in /Users/stmtk/java/logic/target/scala-2.12/resolution-cache/reports/default-logic_2.12-test.xml[0m
@@ -1015,5 +1015,5 @@
 [0m[[0m[0mdebug[0m] [0m[0m	report for default#logic_2.12;1.0 plugin produced in /Users/stmtk/java/logic/target/scala-2.12/resolution-cache/reports/default-logic_2.12-plugin.xml[0m
 [0m[[0m[0mdebug[0m] [0m[0m	report for default#logic_2.12;1.0 pom produced in /Users/stmtk/java/logic/target/scala-2.12/resolution-cache/reports/default-logic_2.12-pom.xml[0m
 [0m[[0m[0mdebug[0m] [0m[0m	report for default#logic_2.12;1.0 scala-tool produced in /Users/stmtk/java/logic/target/scala-2.12/resolution-cache/reports/default-logic_2.12-scala-tool.xml[0m
-[0m[[0m[0mdebug[0m] [0m[0m	resolve done (124ms resolve - 5ms download)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	resolve done (127ms resolve - 4ms download)[0m
 [0m[[0m[0minfo[0m] [0m[0mDone updating.[0m

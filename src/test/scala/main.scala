@@ -547,3 +547,50 @@ class GenInitFuncTest extends FunSpec {
     }
   }
 }
+
+class FuncToIntTest extends FunSpec {
+  it("常にfalse"){
+    val func : (Boolean, Boolean) => Boolean = (_, _) => false
+    assert(Prover.func_to_int(func) == 0)
+  }
+  
+  it("norは1"){
+    val func : (Boolean, Boolean) => Boolean = (x, y) => { !(x || y) }
+    assert(Prover.func_to_int(func) == 1)
+  }
+  
+  it("xorは6"){
+    val func : (Boolean, Boolean) => Boolean = (x, y) => { x ^ y }
+    assert(Prover.func_to_int(func) == 6)
+  }
+  
+  it("nandは7"){
+    val func : (Boolean, Boolean) => Boolean = (x, y) => { !(x && y) }
+    assert(Prover.func_to_int(func) == 7)
+  }
+  
+  it("nandは8"){
+    val func : (Boolean, Boolean) => Boolean = (x, y) => { x && y }
+    assert(Prover.func_to_int(func) == 8)
+  }
+  
+  it("xnorは9"){
+    val func : (Boolean, Boolean) => Boolean = (x, y) => { !(x ^ y) }
+    assert(Prover.func_to_int(func) == 9)
+  }
+  
+  it("norは14"){
+    val func : (Boolean, Boolean) => Boolean = (x, y) => { x || y }
+    assert(Prover.func_to_int(func) == 14)
+  }
+  
+  it("常にtrueは15"){
+    val func : (Boolean, Boolean) => Boolean = (_, _) => { true }
+    assert(Prover.func_to_int(func) == 15)
+  }
+  
+  it("書かんじゃない演算の確認"){
+    val func : (Boolean, Boolean) => Boolean = (x, y) => { x && !y }
+    assert(Prover.func_to_int(func) == 2)
+  }
+}

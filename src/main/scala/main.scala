@@ -49,10 +49,10 @@ object Prover {
   def func_to_int(two_inputs: (Boolean, Boolean) => Boolean) : Int = {
     val ret : Array[Boolean] = new Array[Boolean](4)
     ret(0) = two_inputs(false, false)
-    ret(1) = two_inputs(false, true)
-    ret(2) = two_inputs(true, false)
+    ret(1) = two_inputs(true, false)
+    ret(2) = two_inputs(false, true)
     ret(3) = two_inputs(true, true)
-    Prover.bools_to_int(ret.reverse)
+    Prover.bools_to_int(ret)
   }
 
   def int_to_bools(rule_int: Int, size: Int) : Array[Boolean] = {

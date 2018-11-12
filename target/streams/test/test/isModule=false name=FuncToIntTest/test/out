@@ -1,0 +1,10 @@
+[0m[[0m[0minfo[0m] [0m[0m[32mFuncToIntTest:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- 常にfalse[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- norは1[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- xorは6[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- nandは7[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- nandは8[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- xnorは9[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- norは14[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- 常にtrueは15[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- 書かんじゃない演算の確認[0m[0m
