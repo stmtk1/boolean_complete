@@ -1,0 +1,13 @@
+[0m[[0m[0minfo[0m] [0m[0m[32mRuleToRuleCombineTest:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- Int -> Int[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mFunc -> Func[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- 常にfalse[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- 常にtrue[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- and[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- or[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- xor[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- nand[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- nor[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- xnor[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- 左側をそのまま[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- 右側をそのまま[0m[0m

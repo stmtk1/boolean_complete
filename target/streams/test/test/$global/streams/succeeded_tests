@@ -1,7 +1,8 @@
 #Successful Tests
-#Mon Nov 12 12:55:20 JST 2018
-FuncToIntTest=1541994920327
-GenInitFuncTest=1541994920327
+#Mon Nov 12 13:52:43 JST 2018
+FuncToIntTest=1541998363437
+RuleToRuleCombineTest=1541998363416
+GenInitFuncTest=1541998363431
 MainTest=1541777345919
 LogicGeneratorTest=1541933683926
-IntBoolsConverterTest=1541994920366
+IntBoolsConverterTest=1541998363438

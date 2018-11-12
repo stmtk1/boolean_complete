@@ -311,12 +311,20 @@ class GenInitFuncTest extends FunSpec {
       assert(func(all_false) == true)
     }
     
-    it("ルール2は可換じゃない演算"){
-      val func: Array[Boolean] => Boolean = Prover.gen_init_func(2, 2)
-      assert(func(all_true) == false)
+    it("ルール10は先頭そのまま出力"){
+      val func: Array[Boolean] => Boolean = Prover.gen_init_func(10, 2)
+      assert(func(all_false) == false)
       assert(func(true_false) == true)
       assert(func(false_true) == false)
+      assert(func(all_true) == true)
+    }
+    
+    it("ルール12は最後そのまま出力"){
+      val func: Array[Boolean] => Boolean = Prover.gen_init_func(12, 2)
       assert(func(all_false) == false)
+      assert(func(true_false) == false)
+      assert(func(false_true) == true)
+      assert(func(all_true) == true)
     }
     
     it("ルール15は常にtrue"){
@@ -405,8 +413,131 @@ class FuncToIntTest extends FunSpec {
     assert(Prover.func_to_int(func) == 15)
   }
   
-  it("可換じゃない演算の確認"){
-    val func : (Boolean, Boolean) => Boolean = (x, y) => { x && !y }
-    assert(Prover.func_to_int(func) == 2)
+  it("左そのまま"){
+    val func : (Boolean, Boolean) => Boolean = (x, _) => x
+    assert(Prover.func_to_int(func) == 10)
+  }
+  
+  it("右そのまま"){
+    val func : (Boolean, Boolean) => Boolean = (_, x) => x
+    assert(Prover.func_to_int(func) == 12)
+  }
+}
+
+class RuleToRuleCombineTest extends FunSpec {
+  it("Int -> Int"){
+    def apply_func(func: Array[Boolean] => Boolean) : (Boolean, Boolean) => Boolean = {
+      (x, y) => {
+        func(Array(x, y))
+      }
+    }
+    assert(Prover.func_to_int(apply_func(Prover.gen_init_func(0, 2))) == 0)
+    assert(Prover.func_to_int(apply_func(Prover.gen_init_func(1, 2))) == 1)
+    assert(Prover.func_to_int(apply_func(Prover.gen_init_func(2, 2))) == 2)
+    assert(Prover.func_to_int(apply_func(Prover.gen_init_func(3, 2))) == 3)
+    assert(Prover.func_to_int(apply_func(Prover.gen_init_func(4, 2))) == 4)
+    assert(Prover.func_to_int(apply_func(Prover.gen_init_func(5, 2))) == 5)
+    assert(Prover.func_to_int(apply_func(Prover.gen_init_func(6, 2))) == 6)
+    assert(Prover.func_to_int(apply_func(Prover.gen_init_func(7, 2))) == 7)
+    assert(Prover.func_to_int(apply_func(Prover.gen_init_func(8, 2))) == 8)
+    assert(Prover.func_to_int(apply_func(Prover.gen_init_func(9, 2))) == 9)
+    assert(Prover.func_to_int(apply_func(Prover.gen_init_func(10, 2))) == 10)
+    assert(Prover.func_to_int(apply_func(Prover.gen_init_func(11, 2))) == 11)
+    assert(Prover.func_to_int(apply_func(Prover.gen_init_func(12, 2))) == 12)
+    assert(Prover.func_to_int(apply_func(Prover.gen_init_func(13, 2))) == 13)
+    assert(Prover.func_to_int(apply_func(Prover.gen_init_func(14, 2))) == 14)
+    assert(Prover.func_to_int(apply_func(Prover.gen_init_func(15, 2))) == 15)
+  }
+  
+  describe("Func -> Func"){
+    it("常にfalse"){
+      val func: (Boolean, Boolean) => Boolean = (_, _) => false
+      val checked_func: Array[Boolean] => Boolean = Prover.gen_init_func(Prover.func_to_int(func), 2)
+      assert(checked_func(Array(false, false)) == false)
+      assert(checked_func(Array(true, false)) == false)
+      assert(checked_func(Array(false, true)) == false)
+      assert(checked_func(Array(true, true)) == false)
+    }
+    
+    it("常にtrue"){
+      val func: (Boolean, Boolean) => Boolean = (_, _) => { true }
+      val checked_func: Array[Boolean] => Boolean = Prover.gen_init_func(Prover.func_to_int(func), 2)
+      assert(checked_func(Array(false, false)) == true)
+      assert(checked_func(Array(true, false)) == true)
+      assert(checked_func(Array(false, true)) == true)
+      assert(checked_func(Array(true, true)) == true)
+    }
+    
+    it("and"){
+      val func: (Boolean, Boolean) => Boolean = (x, y) => { x && y }
+      val checked_func: Array[Boolean] => Boolean = Prover.gen_init_func(Prover.func_to_int(func), 2)
+      assert(checked_func(Array(false, false)) == false)
+      assert(checked_func(Array(true, false)) == false)
+      assert(checked_func(Array(false, true)) == false)
+      assert(checked_func(Array(true, true)) == true)
+    }
+    
+    it("or"){
+      val func: (Boolean, Boolean) => Boolean = (x, y) => { x || y }
+      val checked_func: Array[Boolean] => Boolean = Prover.gen_init_func(Prover.func_to_int(func), 2)
+      assert(checked_func(Array(false, false)) == false)
+      assert(checked_func(Array(true, false)) == true)
+      assert(checked_func(Array(false, true)) == true)
+      assert(checked_func(Array(true, true)) == true)
+    }
+    
+    it("xor"){
+      val func: (Boolean, Boolean) => Boolean = (x, y) => { x ^ y }
+      val checked_func: Array[Boolean] => Boolean = Prover.gen_init_func(Prover.func_to_int(func), 2)
+      assert(checked_func(Array(false, false)) == false)
+      assert(checked_func(Array(true, false)) == true)
+      assert(checked_func(Array(false, true)) == true)
+      assert(checked_func(Array(true, true)) == false)
+    }
+    
+    it("nand"){
+      val func: (Boolean, Boolean) => Boolean = (x, y) => { !(x && y) }
+      val checked_func: Array[Boolean] => Boolean = Prover.gen_init_func(Prover.func_to_int(func), 2)
+      assert(checked_func(Array(false, false)) == true)
+      assert(checked_func(Array(true, false)) == true)
+      assert(checked_func(Array(false, true)) == true)
+      assert(checked_func(Array(true, true)) == false)
+    }
+    
+    it("nor"){
+      val func: (Boolean, Boolean) => Boolean = (x, y) => { !(x || y) }
+      val checked_func: Array[Boolean] => Boolean = Prover.gen_init_func(Prover.func_to_int(func), 2)
+      assert(checked_func(Array(false, false)) == true)
+      assert(checked_func(Array(true, false)) == false)
+      assert(checked_func(Array(false, true)) == false)
+      assert(checked_func(Array(true, true)) == false)
+    }
+    
+    it("xnor"){
+      val func: (Boolean, Boolean) => Boolean = (x, y) => { !(x ^ y) }
+      val checked_func: Array[Boolean] => Boolean = Prover.gen_init_func(Prover.func_to_int(func), 2)
+      assert(checked_func(Array(false, false)) == true)
+      assert(checked_func(Array(true, false)) == false)
+      assert(checked_func(Array(false, true)) == false)
+      assert(checked_func(Array(true, true)) == true)
+    }
+    
+    it("左側をそのまま"){
+      val func: (Boolean, Boolean) => Boolean = (x, _) => x
+      val checked_func: Array[Boolean] => Boolean = Prover.gen_init_func(Prover.func_to_int(func), 2)
+      assert(checked_func(Array(false, false)) == false)
+      assert(checked_func(Array(true, false)) == true)
+      assert(checked_func(Array(false, true)) == false)
+      assert(checked_func(Array(true, true)) == true)
+    }
+    
+    it("右側をそのまま"){
+      val func: (Boolean, Boolean) => Boolean = (_, x) => x
+      val checked_func: Array[Boolean] => Boolean = Prover.gen_init_func(Prover.func_to_int(func), 2)
+      assert(checked_func(Array(false, false)) == false)
+      assert(checked_func(Array(true, false)) == false)
+      assert(checked_func(Array(false, true)) == true)
+      assert(checked_func(Array(true, true)) == true)
+    }
   }
 }
