@@ -1,11 +1,11 @@
-[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(RuleToRuleCombineTest, org.scalatest.tools.Framework$$anon$1@6aaedc9c, false, [SuiteSelector])[0m
-[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(ToTwoInputTest, org.scalatest.tools.Framework$$anon$1@6aaedc9c, false, [SuiteSelector])[0m
-[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(FuncToIntTest, org.scalatest.tools.Framework$$anon$1@6aaedc9c, false, [SuiteSelector])[0m
-[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(IntBoolsConverterTest, org.scalatest.tools.Framework$$anon$1@6aaedc9c, false, [SuiteSelector])[0m
-[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(ComfirmAllTwoInputTest, org.scalatest.tools.Framework$$anon$1@6aaedc9c, false, [SuiteSelector])[0m
-[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(ProverConstructorTest, org.scalatest.tools.Framework$$anon$1@6aaedc9c, false, [SuiteSelector])[0m
-[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(GenInitFuncTest, org.scalatest.tools.Framework$$anon$1@6aaedc9c, false, [SuiteSelector])[0m
-[0m[[0m[0minfo[0m] [0m[0m[36mRun completed in 355 milliseconds.[0m[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(FuncToIntTest, org.scalatest.tools.Framework$$anon$1@15b7dd6, false, [SuiteSelector])[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(IntBoolsConverterTest, org.scalatest.tools.Framework$$anon$1@15b7dd6, false, [SuiteSelector])[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(GenInitFuncTest, org.scalatest.tools.Framework$$anon$1@15b7dd6, false, [SuiteSelector])[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(ProverConstructorTest, org.scalatest.tools.Framework$$anon$1@15b7dd6, false, [SuiteSelector])[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(ToTwoInputTest, org.scalatest.tools.Framework$$anon$1@15b7dd6, false, [SuiteSelector])[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(ComfirmAllTwoInputTest, org.scalatest.tools.Framework$$anon$1@15b7dd6, false, [SuiteSelector])[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(RuleToRuleCombineTest, org.scalatest.tools.Framework$$anon$1@15b7dd6, false, [SuiteSelector])[0m
+[0m[[0m[0minfo[0m] [0m[0m[36mRun completed in 318 milliseconds.[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[36mTotal number of tests run: 85[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[36mSuites: completed 7, aborted 0[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[36mTests: succeeded 85, failed 0, canceled 0, ignored 0, pending 0[0m[0m

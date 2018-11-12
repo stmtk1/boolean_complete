@@ -19,7 +19,7 @@ class Prover (rule_int: Int, init_size: Int){
     }
   }
   
-  def comform_all_two_inputs(): Array[Boolean] = {
+  def comform_all_two_inputs(): Int = {
     val ret: Array[Boolean] = new Array[Boolean](16)
     for(i <- 0 until ret.length){
       ret(i) = false
@@ -28,7 +28,7 @@ class Prover (rule_int: Int, init_size: Int){
       val func_bit: Int = Prover.func_to_int(to_two_input(i))
       ret(func_bit) = true
     }
-    ret
+    Prover.bools_to_int(ret)
   }
 }
 
@@ -80,9 +80,7 @@ object Prover {
 object main {
   def main(args: Array[String]) {
     val size = 3
-    val bools = new Prover(240, size).comform_all_two_inputs
-    for(b <- bools){
-      println(b)
-    }
+    val b :Int = new Prover(127, size).comform_all_two_inputs
+    println(b)
   }
 }

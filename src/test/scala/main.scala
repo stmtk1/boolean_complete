@@ -681,75 +681,27 @@ class ToTwoInputTest extends FunSpec {
 
 class ComfirmAllTwoInputTest extends FunSpec {
   it("nand"){
-    val bools = new Prover(127, 3).comform_all_two_inputs()
     // not, nandが実装できる
-    for(i <- 0 until bools.length){
-      if(i == 7)
-        assert(bools(i) == true)
-      else if(i == 3)
-        assert(bools(i) == true)
-      else if(i == 5)
-        assert(bools(i) == true)
-      else
-        assert(bools(i) == false)
-    }
+    assert(new Prover(127, 3).comform_all_two_inputs() == 168)
   }
   
   it("nor"){
-    val bools = new Prover(1, 3).comform_all_two_inputs()
     // not, norが実装できる
-    for(i <- 0 until bools.length){
-      if(i == 1)
-        assert(bools(i) == true)
-      else if(i == 3)
-        assert(bools(i) == true)
-      else if(i == 5)
-        assert(bools(i) == true)
-      else
-        assert(bools(i) == false)
-    }
+    assert(new Prover(1, 3).comform_all_two_inputs() == 42)
   }
   
   it("and"){
-    val bools = new Prover(128, 3).comform_all_two_inputs()
     // and, idが実装できる
-    for(i <- 0 until bools.length){
-      if(i == 8)
-        assert(bools(i) == true)
-      else if(i == 10)
-        assert(bools(i) == true)
-      else if(i == 12)
-        assert(bools(i) == true)
-      else
-        assert(bools(i) == false)
-    }
+    assert(new Prover(128, 3).comform_all_two_inputs() == 5376)
   }
   
   it("or"){
-    val bools = new Prover(254, 3).comform_all_two_inputs()
     // or, idが実装できる
-    for(i <- 0 until bools.length){
-      if(i == 10)
-        assert(bools(i) == true)
-      else if(i == 12)
-        assert(bools(i) == true)
-      else if(i == 14)
-        assert(bools(i) == true)
-      else
-        assert(bools(i) == false)
-    }
+    assert(new Prover(254, 3).comform_all_two_inputs() == 21504)
   }
   
   it("id"){
-    val bools = new Prover(240, 3).comform_all_two_inputs()
     // idが実装できる
-    for(i <- 0 until bools.length){
-      if(i == 10)
-        assert(bools(i) == true)
-      else if(i == 12)
-        assert(bools(i) == true)
-      else
-        assert(bools(i) == false)
-    }
+    assert(new Prover(240, 3).comform_all_two_inputs() == 5120)
   }
 }
