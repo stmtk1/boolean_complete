@@ -1,4 +1,61 @@
-[0m[[0m[31merror[0m] [0m[0m/Users/stmtk/java/logic/src/test/scala/main.scala:696:5: Unmatched closing brace '}' ignored here[0m
-[0m[[0m[31merror[0m] [0m[0m    }[0m
-[0m[[0m[31merror[0m] [0m[0m    ^[0m
-[0m[[0m[31merror[0m] [0m[0mone error found[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stmtk/java/logic/src/test/scala/main.scala:377:45: missing parameter type[0m
+[0m[[0m[31merror[0m] [0m[0m    val func : Array[Boolean] => Boolean = (_, _) => false[0m
+[0m[[0m[31merror[0m] [0m[0m                                            ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stmtk/java/logic/src/test/scala/main.scala:377:48: missing parameter type[0m
+[0m[[0m[31merror[0m] [0m[0m    val func : Array[Boolean] => Boolean = (_, _) => false[0m
+[0m[[0m[31merror[0m] [0m[0m                                               ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stmtk/java/logic/src/test/scala/main.scala:382:45: missing parameter type[0m
+[0m[[0m[31merror[0m] [0m[0m    val func : Array[Boolean] => Boolean = (x, y) => { !(x || y) }[0m
+[0m[[0m[31merror[0m] [0m[0m                                            ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stmtk/java/logic/src/test/scala/main.scala:382:48: missing parameter type[0m
+[0m[[0m[31merror[0m] [0m[0m    val func : Array[Boolean] => Boolean = (x, y) => { !(x || y) }[0m
+[0m[[0m[31merror[0m] [0m[0m                                               ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stmtk/java/logic/src/test/scala/main.scala:387:45: missing parameter type[0m
+[0m[[0m[31merror[0m] [0m[0m    val func : Array[Boolean] => Boolean = (x, y) => { x ^ y }[0m
+[0m[[0m[31merror[0m] [0m[0m                                            ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stmtk/java/logic/src/test/scala/main.scala:387:48: missing parameter type[0m
+[0m[[0m[31merror[0m] [0m[0m    val func : Array[Boolean] => Boolean = (x, y) => { x ^ y }[0m
+[0m[[0m[31merror[0m] [0m[0m                                               ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stmtk/java/logic/src/test/scala/main.scala:392:45: missing parameter type[0m
+[0m[[0m[31merror[0m] [0m[0m    val func : Array[Boolean] => Boolean = (x, y) => { !(x && y) }[0m
+[0m[[0m[31merror[0m] [0m[0m                                            ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stmtk/java/logic/src/test/scala/main.scala:392:48: missing parameter type[0m
+[0m[[0m[31merror[0m] [0m[0m    val func : Array[Boolean] => Boolean = (x, y) => { !(x && y) }[0m
+[0m[[0m[31merror[0m] [0m[0m                                               ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stmtk/java/logic/src/test/scala/main.scala:397:45: missing parameter type[0m
+[0m[[0m[31merror[0m] [0m[0m    val func : Array[Boolean] => Boolean = (x, y) => { x && y }[0m
+[0m[[0m[31merror[0m] [0m[0m                                            ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stmtk/java/logic/src/test/scala/main.scala:397:48: missing parameter type[0m
+[0m[[0m[31merror[0m] [0m[0m    val func : Array[Boolean] => Boolean = (x, y) => { x && y }[0m
+[0m[[0m[31merror[0m] [0m[0m                                               ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stmtk/java/logic/src/test/scala/main.scala:402:45: missing parameter type[0m
+[0m[[0m[31merror[0m] [0m[0m    val func : Array[Boolean] => Boolean = (x, y) => { !(x ^ y) }[0m
+[0m[[0m[31merror[0m] [0m[0m                                            ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stmtk/java/logic/src/test/scala/main.scala:402:48: missing parameter type[0m
+[0m[[0m[31merror[0m] [0m[0m    val func : Array[Boolean] => Boolean = (x, y) => { !(x ^ y) }[0m
+[0m[[0m[31merror[0m] [0m[0m                                               ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stmtk/java/logic/src/test/scala/main.scala:407:45: missing parameter type[0m
+[0m[[0m[31merror[0m] [0m[0m    val func : Array[Boolean] => Boolean = (x, y) => { x || y }[0m
+[0m[[0m[31merror[0m] [0m[0m                                            ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stmtk/java/logic/src/test/scala/main.scala:407:48: missing parameter type[0m
+[0m[[0m[31merror[0m] [0m[0m    val func : Array[Boolean] => Boolean = (x, y) => { x || y }[0m
+[0m[[0m[31merror[0m] [0m[0m                                               ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stmtk/java/logic/src/test/scala/main.scala:412:45: missing parameter type[0m
+[0m[[0m[31merror[0m] [0m[0m    val func : Array[Boolean] => Boolean = (_, _) => { true }[0m
+[0m[[0m[31merror[0m] [0m[0m                                            ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stmtk/java/logic/src/test/scala/main.scala:412:48: missing parameter type[0m
+[0m[[0m[31merror[0m] [0m[0m    val func : Array[Boolean] => Boolean = (_, _) => { true }[0m
+[0m[[0m[31merror[0m] [0m[0m                                               ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stmtk/java/logic/src/test/scala/main.scala:417:45: missing parameter type[0m
+[0m[[0m[31merror[0m] [0m[0m    val func : Array[Boolean] => Boolean = (x, _) => x[0m
+[0m[[0m[31merror[0m] [0m[0m                                            ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stmtk/java/logic/src/test/scala/main.scala:417:48: missing parameter type[0m
+[0m[[0m[31merror[0m] [0m[0m    val func : Array[Boolean] => Boolean = (x, _) => x[0m
+[0m[[0m[31merror[0m] [0m[0m                                               ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stmtk/java/logic/src/test/scala/main.scala:422:45: missing parameter type[0m
+[0m[[0m[31merror[0m] [0m[0m    val func : Array[Boolean] => Boolean = (_, x) => x[0m
+[0m[[0m[31merror[0m] [0m[0m                                            ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stmtk/java/logic/src/test/scala/main.scala:422:48: missing parameter type[0m
+[0m[[0m[31merror[0m] [0m[0m    val func : Array[Boolean] => Boolean = (_, x) => x[0m
+[0m[[0m[31merror[0m] [0m[0m                                               ^[0m
+[0m[[0m[31merror[0m] [0m[0m20 errors found[0m

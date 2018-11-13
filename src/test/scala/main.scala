@@ -374,85 +374,80 @@ class GenInitFuncTest extends FunSpec {
 
 class FuncToIntTest extends FunSpec {
   it("常にfalse"){
-    val func : (Boolean, Boolean) => Boolean = (_, _) => false
-    assert(Prover.func_to_int(func) == 0)
+    val func : Array[Boolean] => Boolean = _ => false
+    assert(Prover.func_to_int(func, 2) == 0)
   }
   
   it("norは1"){
-    val func : (Boolean, Boolean) => Boolean = (x, y) => { !(x || y) }
-    assert(Prover.func_to_int(func) == 1)
+    val func : Array[Boolean] => Boolean = x => { !(x(0) || x(1)) }
+    assert(Prover.func_to_int(func, 2) == 1)
   }
   
   it("xorは6"){
-    val func : (Boolean, Boolean) => Boolean = (x, y) => { x ^ y }
-    assert(Prover.func_to_int(func) == 6)
+    val func : Array[Boolean] => Boolean = x => { x(0) ^ x(1) }
+    assert(Prover.func_to_int(func, 2) == 6)
   }
   
   it("nandは7"){
-    val func : (Boolean, Boolean) => Boolean = (x, y) => { !(x && y) }
-    assert(Prover.func_to_int(func) == 7)
+    val func : Array[Boolean] => Boolean = x => { !(x(0) && x(1)) }
+    assert(Prover.func_to_int(func, 2) == 7)
   }
   
   it("nandは8"){
-    val func : (Boolean, Boolean) => Boolean = (x, y) => { x && y }
-    assert(Prover.func_to_int(func) == 8)
+    val func : Array[Boolean] => Boolean = x => { x(0) && x(1) }
+    assert(Prover.func_to_int(func, 2) == 8)
   }
   
   it("xnorは9"){
-    val func : (Boolean, Boolean) => Boolean = (x, y) => { !(x ^ y) }
-    assert(Prover.func_to_int(func) == 9)
+    val func : Array[Boolean] => Boolean = x => { !(x(0) ^ x(1)) }
+    assert(Prover.func_to_int(func, 2) == 9)
   }
   
   it("norは14"){
-    val func : (Boolean, Boolean) => Boolean = (x, y) => { x || y }
-    assert(Prover.func_to_int(func) == 14)
+    val func : Array[Boolean] => Boolean = x => { x(0) || x(1) }
+    assert(Prover.func_to_int(func, 2) == 14)
   }
   
   it("常にtrueは15"){
-    val func : (Boolean, Boolean) => Boolean = (_, _) => { true }
-    assert(Prover.func_to_int(func) == 15)
+    val func : Array[Boolean] => Boolean = _ => { true }
+    assert(Prover.func_to_int(func, 2) == 15)
   }
   
   it("左そのまま"){
-    val func : (Boolean, Boolean) => Boolean = (x, _) => x
-    assert(Prover.func_to_int(func) == 10)
+    val func : Array[Boolean] => Boolean = x => x(0)
+    assert(Prover.func_to_int(func, 2) == 10)
   }
   
   it("右そのまま"){
-    val func : (Boolean, Boolean) => Boolean = (_, x) => x
-    assert(Prover.func_to_int(func) == 12)
+    val func : Array[Boolean] => Boolean = x => x(1)
+    assert(Prover.func_to_int(func, 2) == 12)
   }
 }
 
 class RuleToRuleCombineTest extends FunSpec {
   it("Int -> Int"){
-    def apply_func(func: Array[Boolean] => Boolean) : (Boolean, Boolean) => Boolean = {
-      (x, y) => {
-        func(Array(x, y))
-      }
-    }
-    assert(Prover.func_to_int(apply_func(Prover.gen_init_func(0, 2))) == 0)
-    assert(Prover.func_to_int(apply_func(Prover.gen_init_func(1, 2))) == 1)
-    assert(Prover.func_to_int(apply_func(Prover.gen_init_func(2, 2))) == 2)
-    assert(Prover.func_to_int(apply_func(Prover.gen_init_func(3, 2))) == 3)
-    assert(Prover.func_to_int(apply_func(Prover.gen_init_func(4, 2))) == 4)
-    assert(Prover.func_to_int(apply_func(Prover.gen_init_func(5, 2))) == 5)
-    assert(Prover.func_to_int(apply_func(Prover.gen_init_func(6, 2))) == 6)
-    assert(Prover.func_to_int(apply_func(Prover.gen_init_func(7, 2))) == 7)
-    assert(Prover.func_to_int(apply_func(Prover.gen_init_func(8, 2))) == 8)
-    assert(Prover.func_to_int(apply_func(Prover.gen_init_func(9, 2))) == 9)
-    assert(Prover.func_to_int(apply_func(Prover.gen_init_func(10, 2))) == 10)
-    assert(Prover.func_to_int(apply_func(Prover.gen_init_func(11, 2))) == 11)
-    assert(Prover.func_to_int(apply_func(Prover.gen_init_func(12, 2))) == 12)
-    assert(Prover.func_to_int(apply_func(Prover.gen_init_func(13, 2))) == 13)
-    assert(Prover.func_to_int(apply_func(Prover.gen_init_func(14, 2))) == 14)
-    assert(Prover.func_to_int(apply_func(Prover.gen_init_func(15, 2))) == 15)
+    assert(Prover.func_to_int(Prover.gen_init_func(0, 2), 2) == 0)
+    assert(Prover.func_to_int(Prover.gen_init_func(1, 2), 2) == 1)
+    assert(Prover.func_to_int(Prover.gen_init_func(2, 2), 2) == 2)
+    assert(Prover.func_to_int(Prover.gen_init_func(3, 2), 2) == 3)
+    assert(Prover.func_to_int(Prover.gen_init_func(4, 2), 2) == 4)
+    assert(Prover.func_to_int(Prover.gen_init_func(5, 2), 2) == 5)
+    assert(Prover.func_to_int(Prover.gen_init_func(6, 2), 2) == 6)
+    assert(Prover.func_to_int(Prover.gen_init_func(7, 2), 2) == 7)
+    assert(Prover.func_to_int(Prover.gen_init_func(8, 2), 2) == 8)
+    assert(Prover.func_to_int(Prover.gen_init_func(9, 2), 2) == 9)
+    assert(Prover.func_to_int(Prover.gen_init_func(10, 2), 2) == 10)
+    assert(Prover.func_to_int(Prover.gen_init_func(11, 2), 2) == 11)
+    assert(Prover.func_to_int(Prover.gen_init_func(12, 2), 2) == 12)
+    assert(Prover.func_to_int(Prover.gen_init_func(13, 2), 2) == 13)
+    assert(Prover.func_to_int(Prover.gen_init_func(14, 2), 2) == 14)
+    assert(Prover.func_to_int(Prover.gen_init_func(15, 2), 2) == 15)
   }
   
   describe("Func -> Func"){
     it("常にfalse"){
-      val func: (Boolean, Boolean) => Boolean = (_, _) => false
-      val checked_func: Array[Boolean] => Boolean = Prover.gen_init_func(Prover.func_to_int(func), 2)
+      val func: Array[Boolean] => Boolean = _ => false
+      val checked_func: Array[Boolean] => Boolean = Prover.gen_init_func(Prover.func_to_int(func, 2), 2)
       assert(checked_func(Array(false, false)) == false)
       assert(checked_func(Array(true, false)) == false)
       assert(checked_func(Array(false, true)) == false)
@@ -460,8 +455,8 @@ class RuleToRuleCombineTest extends FunSpec {
     }
     
     it("常にtrue"){
-      val func: (Boolean, Boolean) => Boolean = (_, _) => { true }
-      val checked_func: Array[Boolean] => Boolean = Prover.gen_init_func(Prover.func_to_int(func), 2)
+      val func: Array[Boolean] => Boolean =  _ => true
+      val checked_func: Array[Boolean] => Boolean = Prover.gen_init_func(Prover.func_to_int(func, 2), 2)
       assert(checked_func(Array(false, false)) == true)
       assert(checked_func(Array(true, false)) == true)
       assert(checked_func(Array(false, true)) == true)
@@ -469,8 +464,8 @@ class RuleToRuleCombineTest extends FunSpec {
     }
     
     it("and"){
-      val func: (Boolean, Boolean) => Boolean = (x, y) => { x && y }
-      val checked_func: Array[Boolean] => Boolean = Prover.gen_init_func(Prover.func_to_int(func), 2)
+      val func: Array[Boolean] => Boolean = x => { x(0) && x(1) }
+      val checked_func: Array[Boolean] => Boolean = Prover.gen_init_func(Prover.func_to_int(func, 2), 2)
       assert(checked_func(Array(false, false)) == false)
       assert(checked_func(Array(true, false)) == false)
       assert(checked_func(Array(false, true)) == false)
@@ -478,8 +473,8 @@ class RuleToRuleCombineTest extends FunSpec {
     }
     
     it("or"){
-      val func: (Boolean, Boolean) => Boolean = (x, y) => { x || y }
-      val checked_func: Array[Boolean] => Boolean = Prover.gen_init_func(Prover.func_to_int(func), 2)
+      val func: Array[Boolean] => Boolean = x => { x(0) || x(1) }
+      val checked_func: Array[Boolean] => Boolean = Prover.gen_init_func(Prover.func_to_int(func, 2), 2)
       assert(checked_func(Array(false, false)) == false)
       assert(checked_func(Array(true, false)) == true)
       assert(checked_func(Array(false, true)) == true)
@@ -487,8 +482,8 @@ class RuleToRuleCombineTest extends FunSpec {
     }
     
     it("xor"){
-      val func: (Boolean, Boolean) => Boolean = (x, y) => { x ^ y }
-      val checked_func: Array[Boolean] => Boolean = Prover.gen_init_func(Prover.func_to_int(func), 2)
+      val func: Array[Boolean] => Boolean = x => { x(0) ^ x(1) }
+      val checked_func: Array[Boolean] => Boolean = Prover.gen_init_func(Prover.func_to_int(func, 2), 2)
       assert(checked_func(Array(false, false)) == false)
       assert(checked_func(Array(true, false)) == true)
       assert(checked_func(Array(false, true)) == true)
@@ -496,8 +491,8 @@ class RuleToRuleCombineTest extends FunSpec {
     }
     
     it("nand"){
-      val func: (Boolean, Boolean) => Boolean = (x, y) => { !(x && y) }
-      val checked_func: Array[Boolean] => Boolean = Prover.gen_init_func(Prover.func_to_int(func), 2)
+      val func: Array[Boolean] => Boolean = x => { !(x(0) && x(1)) }
+      val checked_func: Array[Boolean] => Boolean = Prover.gen_init_func(Prover.func_to_int(func, 2), 2)
       assert(checked_func(Array(false, false)) == true)
       assert(checked_func(Array(true, false)) == true)
       assert(checked_func(Array(false, true)) == true)
@@ -505,8 +500,8 @@ class RuleToRuleCombineTest extends FunSpec {
     }
     
     it("nor"){
-      val func: (Boolean, Boolean) => Boolean = (x, y) => { !(x || y) }
-      val checked_func: Array[Boolean] => Boolean = Prover.gen_init_func(Prover.func_to_int(func), 2)
+      val func: Array[Boolean] => Boolean = x => { !(x(0) || x(1)) }
+      val checked_func: Array[Boolean] => Boolean = Prover.gen_init_func(Prover.func_to_int(func, 2), 2)
       assert(checked_func(Array(false, false)) == true)
       assert(checked_func(Array(true, false)) == false)
       assert(checked_func(Array(false, true)) == false)
@@ -514,8 +509,8 @@ class RuleToRuleCombineTest extends FunSpec {
     }
     
     it("xnor"){
-      val func: (Boolean, Boolean) => Boolean = (x, y) => { !(x ^ y) }
-      val checked_func: Array[Boolean] => Boolean = Prover.gen_init_func(Prover.func_to_int(func), 2)
+      val func: Array[Boolean] => Boolean = x => { !(x(0) ^ x(1)) }
+      val checked_func: Array[Boolean] => Boolean = Prover.gen_init_func(Prover.func_to_int(func, 2), 2)
       assert(checked_func(Array(false, false)) == true)
       assert(checked_func(Array(true, false)) == false)
       assert(checked_func(Array(false, true)) == false)
@@ -523,8 +518,8 @@ class RuleToRuleCombineTest extends FunSpec {
     }
     
     it("左側をそのまま"){
-      val func: (Boolean, Boolean) => Boolean = (x, _) => x
-      val checked_func: Array[Boolean] => Boolean = Prover.gen_init_func(Prover.func_to_int(func), 2)
+      val func: Array[Boolean] => Boolean = x => x(0)
+      val checked_func: Array[Boolean] => Boolean = Prover.gen_init_func(Prover.func_to_int(func, 2), 2)
       assert(checked_func(Array(false, false)) == false)
       assert(checked_func(Array(true, false)) == true)
       assert(checked_func(Array(false, true)) == false)
@@ -532,8 +527,8 @@ class RuleToRuleCombineTest extends FunSpec {
     }
     
     it("右側をそのまま"){
-      val func: (Boolean, Boolean) => Boolean = (_, x) => x
-      val checked_func: Array[Boolean] => Boolean = Prover.gen_init_func(Prover.func_to_int(func), 2)
+      val func: Array[Boolean] => Boolean = x => x(1)
+      val checked_func: Array[Boolean] => Boolean = Prover.gen_init_func(Prover.func_to_int(func, 2), 2)
       assert(checked_func(Array(false, false)) == false)
       assert(checked_func(Array(true, false)) == false)
       assert(checked_func(Array(false, true)) == true)
@@ -606,94 +601,94 @@ class ToTwoInputTest extends FunSpec {
       val p: Prover = new Prover(127, 3)
       it("ルール1はnandのまま"){
         val func = p.to_two_input(1)
-        assert(func(false, false) == true)
-        assert(func(true, false) == true)
-        assert(func(false, true) == true)
-        assert(func(true, true) == false)
+        assert(func(Array(false, false)) == true)
+        assert(func(Array(true, false)) == true)
+        assert(func(Array(false, true)) == true)
+        assert(func(Array(true, true)) == false)
       }
       
       it("ルール2はnandのまま"){
         val func = p.to_two_input(2)
-        assert(func(false, false) == true)
-        assert(func(true, false) == true)
-        assert(func(false, true) == true)
-        assert(func(true, true) == false)
+        assert(func(Array(false, false)) == true)
+        assert(func(Array(true, false)) == true)
+        assert(func(Array(false, true)) == true)
+        assert(func(Array(true, true)) == false)
       }
       
       it("ルール7はnot"){
         val func = p.to_two_input(7)
-        assert(func(false, false) == true)
-        assert(func(true, false) == true)
-        assert(func(false, true) == false)
-        assert(func(true, true) == false)
+        assert(func(Array(false, false)) == true)
+        assert(func(Array(true, false)) == true)
+        assert(func(Array(false, true)) == false)
+        assert(func(Array(true, true)) == false)
       }
       
       it("ルール0はnot"){
         val func = p.to_two_input(0)
-        assert(func(false, false) == true)
-        assert(func(true, false) == false)
-        assert(func(false, true) == true)
-        assert(func(true, true) == false)
+        assert(func(Array(false, false)) == true)
+        assert(func(Array(true, false)) == false)
+        assert(func(Array(false, true)) == true)
+        assert(func(Array(true, true)) == false)
       }
     }
     describe("3入力nor"){
       val p: Prover = new Prover(1, 3)
       it("ルール1はnorのまま"){
         val func = p.to_two_input(1)
-        assert(func(false, false) == true)
-        assert(func(true, false) == false)
-        assert(func(false, true) == false)
-        assert(func(true, true) == false)
+        assert(func(Array(false, false)) == true)
+        assert(func(Array(true, false)) == false)
+        assert(func(Array(false, true)) == false)
+        assert(func(Array(true, true)) == false)
       }
       
       it("ルール2はnorのまま"){
         val func = p.to_two_input(2)
-        assert(func(false, false) == true)
-        assert(func(true, false) == false)
-        assert(func(false, true) == false)
-        assert(func(true, true) == false)
+        assert(func(Array(false, false)) == true)
+        assert(func(Array(true, false)) == false)
+        assert(func(Array(false, true)) == false)
+        assert(func(Array(true, true)) == false)
       }
       
       it("ルール7はnot"){
         val func = p.to_two_input(7)
-        assert(func(false, false) == true)
-        assert(func(true, false) == true)
-        assert(func(false, true) == false)
-        assert(func(true, true) == false)
+        assert(func(Array(false, false)) == true)
+        assert(func(Array(true, false)) == true)
+        assert(func(Array(false, true)) == false)
+        assert(func(Array(true, true)) == false)
       }
       
       it("ルール0はnot"){
         val func = p.to_two_input(0)
-        assert(func(false, false) == true)
-        assert(func(true, false) == false)
-        assert(func(false, true) == true)
-        assert(func(true, true) == false)
+        assert(func(Array(false, false)) == true)
+        assert(func(Array(true, false)) == false)
+        assert(func(Array(false, true)) == true)
+        assert(func(Array(true, true)) == false)
       }
     }
     describe("一番左の入力だけに依存する関数"){
       val p = new Prover(240, 3)
       it("左に依存"){
         val func = p.to_two_input(0)
-        assert(func(false, false) == false)
-        assert(func(true, false) == true)
-        assert(func(false, true) == false)
-        assert(func(true, true) == true)
+        assert(func(Array(false, false)) == false)
+        assert(func(Array(true, false)) == true)
+        assert(func(Array(false, true)) == false)
+        assert(func(Array(true, true)) == true)
       }
       
       it("右に依存"){
         val func = p.to_two_input(7)
-        assert(func(false, false) == false)
-        assert(func(true, false) == false)
-        assert(func(false, true) == true)
-        assert(func(true, true) == true)
+        assert(func(Array(false, false)) == false)
+        assert(func(Array(true, false)) == false)
+        assert(func(Array(false, true)) == true)
+        assert(func(Array(true, true)) == true)
       }
       
       it("ルール1も右に依存"){
         val func = p.to_two_input(4)
-        assert(func(false, false) == false)
-        assert(func(true, false) == false)
-        assert(func(false, true) == true)
-        assert(func(true, true) == true)
+        assert(func(Array(false, false)) == false)
+        assert(func(Array(true, false)) == false)
+        assert(func(Array(false, true)) == true)
+        assert(func(Array(true, true)) == true)
       }
     }
   }
@@ -723,5 +718,68 @@ class ComfirmAllTwoInputTest extends FunSpec {
   it("id"){
     // idが実装できる
     assert(new Prover(240, 3).comform_all_two_inputs() == 5120)
+  }
+}
+
+class ToThreeInputTest extends FunSpec {
+  describe("一つ目がor"){
+    it("定数関数(true)との合成は常にtrue"){
+      val func = Prover.to_three_input(15, 14)
+      assert(func(Array(false, false, false)) == true)
+      assert(func(Array(true, false, false)) == true)
+      assert(func(Array(false, true, false)) == true)
+      assert(func(Array(true, true, false)) == true)
+      assert(func(Array(false, false, true)) == true)
+      assert(func(Array(true, false, true)) == true)
+      assert(func(Array(false, true, true)) == true)
+      assert(func(Array(true, true, true)) == true)
+    }
+    it("定数関数(false)との合成はid"){
+      val func = Prover.to_three_input(0, 14)
+      assert(func(Array(false, false, false)) == false)
+      assert(func(Array(true, false, false)) == true)
+      assert(func(Array(false, true, false)) == false)
+      assert(func(Array(true, true, false)) == true)
+      assert(func(Array(false, false, true)) == false)
+      assert(func(Array(true, false, true)) == true)
+      assert(func(Array(false, true, true)) == false)
+      assert(func(Array(true, true, true)) == true)
+    }
+    
+    it("順番変えると常にfalse"){
+      val func = Prover.to_three_input(14, 0)
+      assert(func(Array(false, false, false)) == false)
+      assert(func(Array(true, false, false)) == false)
+      assert(func(Array(false, true, false)) == false)
+      assert(func(Array(true, true, false)) == false)
+      assert(func(Array(false, false, true)) == false)
+      assert(func(Array(true, false, true)) == false)
+      assert(func(Array(false, true, true)) == false)
+      assert(func(Array(true, true, true)) == false)
+    }
+    
+    it("3入力or"){
+      val func = Prover.to_three_input(14, 14)
+      assert(func(Array(false, false, false)) == false)
+      assert(func(Array(true, false, false)) == true)
+      assert(func(Array(false, true, false)) == true)
+      assert(func(Array(true, true, false)) == true)
+      assert(func(Array(false, false, true)) == true)
+      assert(func(Array(true, false, true)) == true)
+      assert(func(Array(false, true, true)) == true)
+      assert(func(Array(true, true, true)) == true)
+    }
+    
+    it("andとの合成"){
+      val func = Prover.to_three_input(8, 14)
+      assert(func(Array(false, false, false)) == false)
+      assert(func(Array(true, false, false)) == true)
+      assert(func(Array(false, true, false)) == false)
+      assert(func(Array(true, true, false)) == true)
+      assert(func(Array(false, false, true)) == false)
+      assert(func(Array(true, false, true)) == true)
+      assert(func(Array(false, true, true)) == true)
+      assert(func(Array(true, true, true)) == true)
+    }
   }
 }

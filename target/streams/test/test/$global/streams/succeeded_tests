@@ -1,11 +1,12 @@
 #Successful Tests
-#Tue Nov 13 00:29:43 JST 2018
-ToTwoInputTest=1542036583338
-FuncToIntTest=1542036583305
-ProverConstructorTest=1542036583300
-ComfirmAllTwoInputTest=1542036583342
-IntBoolsConverterTest=1542036583411
+#Tue Nov 13 19:14:11 JST 2018
+ToTwoInputTest=1542104051677
+FuncToIntTest=1542104051805
+ProverConstructorTest=1542104051746
+ComfirmAllTwoInputTest=1542104051749
+ToThreeInputTest=1542104051673
+IntBoolsConverterTest=1542104051804
 MainTest=1541777345919
 LogicGeneratorTest=1541933683926
-RuleToRuleCombineTest=1542036583337
-GenInitFuncTest=1542036583305
+RuleToRuleCombineTest=1542104051754
+GenInitFuncTest=1542104051680
