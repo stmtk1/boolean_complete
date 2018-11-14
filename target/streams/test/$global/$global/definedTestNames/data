@@ -1,1 +1,1 @@
-["ProverConstructorTest","FuncToIntTest","IntBoolsConverterTest","ToTwoInputTest","ToThreeInputTest","GenInitFuncTest","ComfirmAllTwoInputTest","RuleToRuleCombineTest"]
+["ProverConstructorTest","FuncToIntTest","IntBoolsConverterTest","GenFuncTest","ToTwoInputTest","ToThreeInputTest","ComposeToTwoTest","CombineAllTwo","ComfirmAllTwoInputTest","RuleToRuleCombineTest"]

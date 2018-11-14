@@ -1,8 +1,9 @@
 import scala.math.pow
 
 class Prover (rule_int: Int, init_size: Int){
-  val circuit: Array[Boolean] => Boolean = Prover.gen_init_func(rule_int, init_size)
   val size: Int = init_size
+  val rule: Int = rule_int
+  val circuit: Array[Boolean] => Boolean = gen_func()
   
   def to_two_input(rule: Int) : Array[Boolean] => Boolean = {
     val selector: Array[Boolean] = Prover.int_to_bools(rule, this.size)
@@ -31,31 +32,24 @@ class Prover (rule_int: Int, init_size: Int){
     }
     Prover.bools_to_int(ret)
   }
-}
-
-object Prover {
-  def gen_init_func(rule: Int, size: Int) : Array[Boolean] => Boolean = {
-    val rule_size: Int = pow(2, size).intValue
-    val rule_array: Array[Boolean] = Prover.int_to_bools(rule, rule_size)
+  
+  def gen_func() : Array[Boolean] => Boolean = {
+    val rule_size: Int = pow(2, this.size).intValue
+    val rule_array: Array[Boolean] = Prover.int_to_bools(this.rule, rule_size)
     x => {
-      if(x.length != size) {
+      if(x.length != this.size) {
         throw new Exception("引数の長さ違います")
         //raise new Exception("Wrong Length of Array")
       }
       rule_array(Prover.bools_to_int(x))
     }
   }
-  
+}
+
+object Prover {
   def func_to_int(func: Array[Boolean] => Boolean, size: Int) : Int = {
-    //val ret : Array[Boolean] = new Array[Boolean](4)
     val size_of_input: Int = pow(2, size).intValue
     val ret : Array[Boolean] = new Array[Boolean](size_of_input)
-    /*
-    ret(0) = two_inputs(false, false)
-    ret(1) = two_inputs(true, false)
-    ret(2) = two_inputs(false, true)
-    ret(3) = two_inputs(true, true)
-    */
    for(i <- 0 until size_of_input){
      ret(i) = func(int_to_bools(i, size))
    }
@@ -84,8 +78,8 @@ object Prover {
   }
   
   def to_three_input(rule1: Int, rule2: Int) : Array[Boolean] => Boolean = {
-    val func1 = Prover.gen_init_func(rule1, 2)
-    val func2 = Prover.gen_init_func(rule2, 2)
+    val func1 = new Prover(rule1, 2).circuit
+    val func2 = new Prover(rule2, 2).circuit
     x => {
       if(x.length != 3){
         throw new Exception("引数の大きさが違います")
@@ -96,20 +90,41 @@ object Prover {
   }
   
   def composite_to_twos(rule1: Int, rule2: Int) : Int = {
-    1
+    val func_rule = Prover.func_to_int(Prover.to_three_input(rule1, rule2), 3)
+    new Prover(func_rule, 3).comform_all_two_inputs
+  }
+  
+  def check_all_threes() : Array[Int] = {
+    val ret: Array[Int] = new Array[Int](255)
+    for(i <- 0 until ret.length){
+      ret(i) = new Prover(i, 3).comform_all_two_inputs()
+    }
+    var cont: Boolean = true // continue
+    while(cont){
+      cont = false
+      for(i <- 0 until ret.length){
+        val origin = ret(i)
+        ret(i) |= combine_all_two(origin)
+        if(ret(i) != origin){
+          cont = true
+        }
+      }
+    }
+    ret
+  }
+  
+  def combine_all_two(created_bit: Int) : Int = {
+    var ret : Int = created_bit
+    for(i <- 0 until 16 if ((created_bit >> i) & 1) == 1){
+      for(j <- 0 until 16 if ((created_bit >> j) & 1) == 1){
+        ret |= composite_to_twos(i, j)
+      }
+    }
+    ret
   }
 }
 
 object main {
   def main(args: Array[String]) {
-    val func = Prover.to_three_input(7, 7)
-    println(func(Array(false, false, false)))
-    println(func(Array(true, false, false)))
-    println(func(Array(false, true, false)))
-    println(func(Array(true, true, false)))
-    println(func(Array(false, false, true)))
-    println(func(Array(true, false, true)))
-    println(func(Array(false, true, true)))
-    println(func(Array(true, true, true)))
   }
 }
