@@ -3,3 +3,5 @@
 [0m[[0m[0minfo[0m] [0m[0m[32m- 3入力or[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32m- 常にfalse[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32m- 常にtrue[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m- xor *** FAILED ***[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  65 did not equal 64 (main.scala:813)[0m[0m

@@ -794,19 +794,23 @@ class ToThreeInputTest extends FunSpec {
 
 class ComposeToTwoTest extends FunSpec {
   it("3入力and"){
-    assert(Prover.composite_to_twos(8, 8) == 5376)
+    assert(Prover.composite_to_twos(8, 8, 8) == 5376)
   }
   
   it("3入力or"){
-    assert(Prover.composite_to_twos(14, 14) == 21504)
+    assert(Prover.composite_to_twos(14, 14, 14) == 21504)
   }
   
   it("常にfalse"){
-    assert(Prover.composite_to_twos(0, 0) == 1)
+    assert(Prover.composite_to_twos(0, 0, 0) == 1)
   }
   
   it("常にtrue"){
-    assert(Prover.composite_to_twos(255, 255) == 32768)
+    assert(Prover.composite_to_twos(255, 255, 255) == 32768)
+  }
+  
+  it("xor"){
+    assert(Prover.composite_to_twos(2, 4, 14) == 65)
   }
 }
 

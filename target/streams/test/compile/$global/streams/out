@@ -1,22 +1,4 @@
-[0m[[0m[31merror[0m] [0m[0m/Users/stmtk/java/logic/src/test/scala/main.scala:797:19: value composite_to_twos is not a member of object Prover[0m
-[0m[[0m[31merror[0m] [0m[0m    assert(Prover.composite_to_twos(8, 8) == 5376)[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stmtk/java/logic/src/test/scala/main.scala:813:19: value composite_to_two is not a member of object Prover[0m
+[0m[[0m[31merror[0m] [0m[0m    assert(Prover.composite_to_two(2, 4, 14) == 64)[0m
 [0m[[0m[31merror[0m] [0m[0m                  ^[0m
-[0m[[0m[31merror[0m] [0m[0m/Users/stmtk/java/logic/src/test/scala/main.scala:801:19: value composite_to_twos is not a member of object Prover[0m
-[0m[[0m[31merror[0m] [0m[0m    assert(Prover.composite_to_twos(14, 14) == 21504)[0m
-[0m[[0m[31merror[0m] [0m[0m                  ^[0m
-[0m[[0m[31merror[0m] [0m[0m/Users/stmtk/java/logic/src/test/scala/main.scala:805:19: value composite_to_twos is not a member of object Prover[0m
-[0m[[0m[31merror[0m] [0m[0m    assert(Prover.composite_to_twos(0, 0) == 1)[0m
-[0m[[0m[31merror[0m] [0m[0m                  ^[0m
-[0m[[0m[31merror[0m] [0m[0m/Users/stmtk/java/logic/src/test/scala/main.scala:809:19: value composite_to_twos is not a member of object Prover[0m
-[0m[[0m[31merror[0m] [0m[0m    assert(Prover.composite_to_twos(255, 255) == 32768)[0m
-[0m[[0m[31merror[0m] [0m[0m                  ^[0m
-[0m[[0m[31merror[0m] [0m[0m/Users/stmtk/java/logic/src/test/scala/main.scala:815:19: value combine_all_two is not a member of object Prover[0m
-[0m[[0m[31merror[0m] [0m[0m    assert(Prover.combine_all_two(256) == 5376)[0m
-[0m[[0m[31merror[0m] [0m[0m                  ^[0m
-[0m[[0m[31merror[0m] [0m[0m/Users/stmtk/java/logic/src/test/scala/main.scala:819:19: value combine_all_two is not a member of object Prover[0m
-[0m[[0m[31merror[0m] [0m[0m    assert(Prover.combine_all_two(16384) == 21504)[0m
-[0m[[0m[31merror[0m] [0m[0m                  ^[0m
-[0m[[0m[31merror[0m] [0m[0m/Users/stmtk/java/logic/src/test/scala/main.scala:823:19: value combine_all_two is not a member of object Prover[0m
-[0m[[0m[31merror[0m] [0m[0m    assert(Prover.combine_all_two(16640) == 21760)[0m
-[0m[[0m[31merror[0m] [0m[0m                  ^[0m
-[0m[[0m[31merror[0m] [0m[0m7 errors found[0m
+[0m[[0m[31merror[0m] [0m[0mone error found[0m

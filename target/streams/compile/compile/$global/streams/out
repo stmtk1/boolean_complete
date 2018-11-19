@@ -1,7 +1,4 @@
-[0m[[0m[31merror[0m] [0m[0m/Users/stmtk/java/logic/src/main/scala/main.scala:4:53: no arguments allowed for nullary method gen_func: ()Array[Boolean] => Boolean[0m
-[0m[[0m[31merror[0m] [0m[0m  val circuit: Array[Boolean] => Boolean = gen_func(rule_int)[0m
-[0m[[0m[31merror[0m] [0m[0m                                                    ^[0m
-[0m[[0m[31merror[0m] [0m[0m/Users/stmtk/java/logic/src/main/scala/main.scala:37:63: value rule is not a member of Prover[0m
-[0m[[0m[31merror[0m] [0m[0m    val rule_array: Array[Boolean] = Prover.int_to_bools(this.rule, rule_size)[0m
-[0m[[0m[31merror[0m] [0m[0m                                                              ^[0m
-[0m[[0m[31merror[0m] [0m[0mtwo errors found[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/stmtk/java/logic/src/main/scala/main.scala:111:75: too many arguments (3) for method to_four_input: (rule1: Int, rule2: Int)Array[Boolean] => Boolean[0m
+[0m[[0m[31merror[0m] [0m[0m    val func_rule = Prover.func_to_int(Prover.to_four_input(rule1, rule2, rule3), 4)[0m
+[0m[[0m[31merror[0m] [0m[0m                                                                          ^[0m
+[0m[[0m[31merror[0m] [0m[0mone error found[0m
